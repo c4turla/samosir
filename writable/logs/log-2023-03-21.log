@@ -1,0 +1,64 @@
+CRITICAL - 2023-03-21 01:50:57 --> syntax error, unexpected ':', expecting ']'
+#0 C:\laragon\www\sikapnew\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('api/login')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('api/login')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 01:51:09 --> syntax error, unexpected '{'
+#0 C:\laragon\www\sikapnew\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('api/login')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('api/login')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 01:52:55 --> syntax error, unexpected '{'
+#0 C:\laragon\www\sikapnew\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('api/login')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('api/login')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 02:32:57 --> syntax error, unexpected '=', expecting ']'
+#0 C:\laragon\www\sikapnew\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('api/login')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('api/login')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 02:33:18 --> syntax error, unexpected '=', expecting ']'
+#0 C:\laragon\www\sikapnew\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('api/login')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('api/login')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 02:34:36 --> syntax error, unexpected ''nama_lengkap'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+#0 C:\laragon\www\sikapnew\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('api/login')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('api/login')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 23:04:42 --> Too few arguments to function Firebase\JWT\JWT::encode(), 2 passed in C:\laragon\www\sikapnew\app\Controllers\Api\Login.php on line 50 and at least 3 expected
+#0 C:\laragon\www\sikapnew\app\Controllers\Api\Login.php(50): Firebase\JWT\JWT::encode(Array, '4235553JDDJKJKD...')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Login->index()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Login))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-21 23:04:53 --> Too few arguments to function Firebase\JWT\JWT::encode(), 2 passed in C:\laragon\www\sikapnew\app\Controllers\Api\Login.php on line 50 and at least 3 expected
+#0 C:\laragon\www\sikapnew\app\Controllers\Api\Login.php(50): Firebase\JWT\JWT::encode(Array, '4235553JDDJKJKD...')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Login->index()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Login))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}

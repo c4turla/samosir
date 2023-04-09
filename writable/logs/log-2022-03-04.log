@@ -1,0 +1,45 @@
+ERROR - 2022-03-04 06:18:08 --> Table 'sikap_apps.kapal' doesn't exist
+CRITICAL - 2022-03-04 06:18:08 --> Table 'sikap_apps.kapal' doesn't exist
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\sikapnew\system\Validation\Rules.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\system\Validation\Validation.php(292): CodeIgniter\Validation\Rules->is_unique('', 'nama_kapal', Array, NULL)
+#6 C:\laragon\www\sikapnew\system\Validation\Validation.php(157): CodeIgniter\Validation\Validation->processRules('nama_kapal', 'nama_kapal', '', Array, Array)
+#7 C:\laragon\www\sikapnew\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\sikapnew\app\Controllers\Kapal.php(36): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kapal->store()
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kapal))
+#11 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2022-03-04 06:21:19 --> Undefined property: App\Controllers\Kapal::$kapal
+#0 C:\laragon\www\sikapnew\app\Controllers\Kapal.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 59, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kapal->store()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kapal))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2022-03-04 06:34:28 --> Trying to get property 'id' of non-object
+#0 C:\laragon\www\sikapnew\app\Views\data-kapal.php(135): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 135, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('data-kapal', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Kapal.php(20): view('data-kapal', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kapal->index()
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kapal))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-03-04 07:21:13 --> Undefined property: App\Controllers\Dashboard::$KapalModel
+#0 C:\laragon\www\sikapnew\app\Controllers\Dashboard.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 15, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}

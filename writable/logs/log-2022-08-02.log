@@ -1,0 +1,67 @@
+ERROR - 2022-08-02 09:18:52 --> Table 'sikap_apps.datat_pengguna' doesn't exist
+CRITICAL - 2022-08-02 09:18:52 --> Table 'sikap_apps.datat_pengguna' doesn't exist
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\sikapnew\system\Validation\Rules.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\system\Validation\Validation.php(292): CodeIgniter\Validation\Rules->is_unique('shakila@gmail.c...', 'email', Array, NULL)
+#6 C:\laragon\www\sikapnew\system\Validation\Validation.php(157): CodeIgniter\Validation\Validation->processRules('email', 'email', 'shakila@gmail.c...', Array, Array)
+#7 C:\laragon\www\sikapnew\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\sikapnew\app\Controllers\Api\Register.php(28): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Register->index()
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Register))
+#11 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2022-08-02 09:27:27 --> Trying to access array offset on value of type null
+#0 C:\laragon\www\sikapnew\app\Views\pengguna\edit.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\laragon\\www\\...', 62, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('pengguna/edit', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Pengguna.php(85): view('pengguna/edit', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Pengguna->edit('assets', 'images', 'logo-head.png')
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-08-02 09:27:28 --> Trying to access array offset on value of type null
+#0 C:\laragon\www\sikapnew\app\Views\pengguna\edit.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\laragon\\www\\...', 62, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('pengguna/edit', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Pengguna.php(85): view('pengguna/edit', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Pengguna->edit('assets', 'images', 'users', 'avatar-3.jpg')
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-08-02 09:27:28 --> Trying to access array offset on value of type null
+#0 C:\laragon\www\sikapnew\app\Views\pengguna\edit.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\laragon\\www\\...', 62, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('pengguna/edit', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Pengguna.php(85): view('pengguna/edit', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Pengguna->edit('assets', 'images', 'users', 'avatar-6.jpg')
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-08-02 09:39:14 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::findAll()
+#0 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Kapal->index()
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Kapal))
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#5 {main}
+CRITICAL - 2022-08-02 09:44:30 --> Object of class App\Models\KedatanganModel could not be converted to string
+#0 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Kapal->index()
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Kapal))
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#5 {main}

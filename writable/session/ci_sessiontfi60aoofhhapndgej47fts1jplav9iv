@@ -1,0 +1,9 @@
+__ci_last_regenerate|i:1657455192;_ci_previous_url|s:34:"http://localhost:8080/pengguna-add";id|s:1:"1";name|s:12:"Catur Riyono";email|s:19:"catur.crh@gmail.com";jabatan|s:13:"Administrator";hp|s:12:"085340517686";alamat|s:7:"Jakarta";photo|s:35:"1656468244_9450227ff04eaa92f608.jpg";role|s:1:"1";logged_in|b:1;error|s:235:"<!-- DEBUG-VIEW START 1 SYSTEMPATH\Validation\Views\list.php -->
+	<div class="errors" role="alert">
+		<ul>
+					<li>Nama Tangkahan Harus diisi</li>
+				</ul>
+	</div>
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH\Validation\Views\list.php -->
+";__ci_vars|a:3:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";s:21:"_ci_validation_errors";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:6:{s:14:"csrf_test_name";s:32:"b6a13146968e72b4fa1e4d5abe04749d";s:4:"nama";s:0:"";s:6:"alamat";s:0:"";s:5:"jarak";s:0:"";s:8:"password";s:0:"";s:12:"confpassword";s:0:"";}}_ci_validation_errors|s:51:"a:1:{s:4:"nama";s:26:"Nama Tangkahan Harus diisi";}";

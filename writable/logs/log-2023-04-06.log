@@ -1,0 +1,12 @@
+CRITICAL - 2023-04-06 02:07:17 --> Division by zero
+#0 C:\laragon\www\sikapnew\app\Views\dashboard.php(212): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Division by zer...', 'C:\\laragon\\www\\...', 212, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('dashboard', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Dashboard.php(67): view('dashboard', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}

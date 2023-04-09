@@ -1,0 +1,36 @@
+CRITICAL - 2022-07-12 06:57:40 --> Undefined variable: tglawal
+#0 C:\laragon\www\sikapnew\app\Controllers\Laporan.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 64, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Laporan->lap_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2022-07-12 09:33:10 --> Cannot use object of type stdClass as array
+#0 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Laporan->lap_kedatangan()
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#5 {main}
+CRITICAL - 2022-07-12 09:35:26 --> Cannot use object of type mysqli as array
+#0 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Laporan->lap_kedatangan()
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#5 {main}
+CRITICAL - 2022-07-12 11:14:29 --> Cannot use object of type stdClass as array
+#0 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Laporan->lap_kedatangan()
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#5 {main}
+CRITICAL - 2022-07-12 11:15:52 --> Cannot use object of type stdClass as array
+#0 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Laporan->lap_kedatangan()
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#5 {main}

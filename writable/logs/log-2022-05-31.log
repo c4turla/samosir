@@ -1,0 +1,52 @@
+ERROR - 2022-05-31 05:51:34 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2022-05-31 05:51:34 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\laragon\www\sikapnew\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\laragon\www\sikapnew\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\laragon\www\sikapnew\app\Controllers\Login.php(21): CodeIgniter\BaseModel->first()
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Login->process()
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-05-31 06:11:33 --> Trying to access array offset on value of type null
+#0 C:\laragon\www\sikapnew\app\Views\kapal\edit.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('kapal/edit', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Kapal.php(75): view('kapal/edit', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kapal->edit('assets', 'images', 'logo-sm.svg')
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kapal))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-05-31 06:11:33 --> Trying to access array offset on value of type null
+#0 C:\laragon\www\sikapnew\app\Views\kapal\edit.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('kapal/edit', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Kapal.php(75): view('kapal/edit', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kapal->edit('assets', 'images', 'users', 'avatar-3.jpg')
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kapal))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2022-05-31 06:11:33 --> Trying to access array offset on value of type null
+#0 C:\laragon\www\sikapnew\app\Views\kapal\edit.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('kapal/edit', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Kapal.php(75): view('kapal/edit', Array)
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kapal->edit('assets', 'images', 'users', 'avatar-6.jpg')
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kapal))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}

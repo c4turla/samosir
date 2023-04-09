@@ -1,0 +1,17 @@
+CRITICAL - 2023-03-22 00:23:54 --> Undefined variable: user
+#0 C:\laragon\www\sikapnew\app\Controllers\Api\Register.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 38, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Register->index()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Register))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-03-22 23:11:03 --> Argument 1 passed to CodeIgniter\Validation\Validation::setRules() must be of the type array, bool given, called in C:\laragon\www\sikapnew\system\Controller.php on line 160
+#0 C:\laragon\www\sikapnew\system\Controller.php(160): CodeIgniter\Validation\Validation->setRules(false, Array)
+#1 C:\laragon\www\sikapnew\app\Controllers\Api\Register.php(27): CodeIgniter\Controller->validate(false)
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Register->index()
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Register))
+#4 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#7 {main}
