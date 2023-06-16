@@ -125,8 +125,8 @@
                                                         </div>
                                                     </th>
                                                     <th style="width: 120px;">Nama Kapal</th>
-                                                    <th>Asal</th>
-                                                    <th>Tanggal/Jam</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Jam</th>
                                                     <th>Dermaga</th>
                                                     <th>Status</th>
                                                     <th>Approval</th>

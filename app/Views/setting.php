@@ -65,9 +65,9 @@
                     <td><img src="<?= base_url() . "/images/users/" . $user['photo']; ?>" alt="" class="avatar-sm rounded-circle me-2">
                         <a href="#" class="text-body"><?= $user['name'] ?></a>
                     </td>
-                    <td><?= $user['email'] ?></td>
-                    <td><?= $user['hp'] ?></td>
                     <td><?= $user['jabatan'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td><?= $user['hp'] ?></td>                    
                     <td><?= $user['alamat'] ?></td>
                     <td>
                         <div class="dropdown">

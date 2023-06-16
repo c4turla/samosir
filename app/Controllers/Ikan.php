@@ -12,7 +12,10 @@ class Ikan extends BaseController
 
     public function index()
     {
-        return view('ikan/index');
+        $no = 'KM. ABADI MAKMUR';
+        $data['id'] = base64_encode($no);
+        $data['decrypt'] = base64_decode( $data['id']);
+        return view('ikan/index', $data);
     }
 
     public function ajax_ikan()

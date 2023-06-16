@@ -107,14 +107,14 @@
                                                     <div class="row mb-4">
                                                         <label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
                                                         <div class="col-sm-2">
-                                                            <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $olahgerak['tanggal'] ?>">
+                                                            <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $olahgerak['tanggal'] ?>" readonly>
                                                             <input type="hidden"  id="id_kedatangan" name="id_kedatangan" value="<?= $olahgerak['id_kedatangan'] ?>">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">
                                                         <label for="jam" class="col-sm-3 col-form-label">Jam</label>
                                                         <div class="col-sm-2">
-                                                            <input type="time" class="form-control" id="jam" name="jam" value="<?= $olahgerak['jam'] ?>">
+                                                            <input type="time" class="form-control" id="jam" name="jam" value="<?= $olahgerak['jam'] ?>" readonly>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">

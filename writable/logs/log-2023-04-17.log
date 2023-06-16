@@ -1,0 +1,209 @@
+CRITICAL - 2023-04-17 21:21:12 --> Undefined variable: bongkar
+#0 C:\laragon\www\sikapnew\app\Views\bongkar\index.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 68, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('bongkar/index', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(12): view('bongkar/index')
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->index()
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2023-04-17 21:22:30 --> Undefined variable: bongkar
+#0 C:\laragon\www\sikapnew\app\Views\bongkar\index.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 68, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('bongkar/index', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(12): view('bongkar/index')
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->index()
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+CRITICAL - 2023-04-17 21:28:04 --> Undefined variable: bongkar
+#0 C:\laragon\www\sikapnew\app\Views\bongkar\index.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 68, Array)
+#1 C:\laragon\www\sikapnew\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\sikapnew\system\Common.php(1089): CodeIgniter\View\View->render('bongkar/index', Array, true)
+#4 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(12): view('bongkar/index')
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->index()
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#7 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#10 {main}
+ERROR - 2023-04-17 21:34:01 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:34:01 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+ERROR - 2023-04-17 21:34:57 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:34:57 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+ERROR - 2023-04-17 21:37:56 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:37:56 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+ERROR - 2023-04-17 21:38:02 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:38:02 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+ERROR - 2023-04-17 21:38:42 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:38:42 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+ERROR - 2023-04-17 21:38:46 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:38:46 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+ERROR - 2023-04-17 21:38:56 --> Unknown column 'a.tanda_pengenal' in 'field list'
+CRITICAL - 2023-04-17 21:38:56 --> Unknown column 'a.tanda_pengenal' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`no_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`no_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`no_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`no_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2023-04-17 21:42:22 --> Undefined property: stdClass::$id_bongkar
+#0 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(30): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 30, Array)
+#1 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(91): App\Controllers\Bongkar->App\Controllers\{closure}(Object(stdClass))
+#2 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#3 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(43): Hermawan\DataTables\DataTable->toJson()
+#4 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->ajax_bongkar()
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#9 {main}
+CRITICAL - 2023-04-17 21:44:27 --> Undefined property: App\Controllers\Bongkar::$bongkars
+#0 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 106, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->cetak('0')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-04-17 21:44:33 --> Undefined property: App\Controllers\Bongkar::$bongkars
+#0 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 106, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->cetak('12')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-04-17 21:54:21 --> Undefined property: App\Controllers\Bongkar::$bongkars
+#0 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 106, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->cetak('0')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-04-17 21:54:26 --> Undefined property: App\Controllers\Bongkar::$bongkars
+#0 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 106, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->cetak('12')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-04-17 21:55:23 --> Undefined property: App\Controllers\Bongkar::$bongkars
+#0 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 106, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->cetak('18')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-04-17 22:10:02 --> Deletes are not allowed unless they contain a "where" or "like" clause.
+#0 C:\laragon\www\sikapnew\system\Model.php(359): CodeIgniter\Database\BaseBuilder->delete()
+#1 C:\laragon\www\sikapnew\system\BaseModel.php(963): CodeIgniter\Model->doDelete('0', false)
+#2 C:\laragon\www\sikapnew\app\Controllers\Bongkar.php(135): CodeIgniter\BaseModel->delete('0')
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Bongkar->delete('0')
+#4 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bongkar))
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#8 {main}

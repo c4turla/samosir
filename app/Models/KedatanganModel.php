@@ -88,8 +88,7 @@ class KedatanganModel extends Model
 
     function total_kedatangan()
     {
-        $query = $this->table('data_kedatangan')->get();
-        return $query->getNumRows();
+        return $this->db->query('call getTotalKedatangan()');
     }
 
     function total_ikan()
@@ -130,20 +129,7 @@ class KedatanganModel extends Model
 
     function statistik_kedatangan()
     {     
-     $sql= $this->db->query("select
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=1)AND (YEAR(tanggal)=YEAR(now())))),0) AS `Januari`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=2)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Februari`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=3)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Maret`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=4)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `April`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=5)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Mei`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=6)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Juni`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=7)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Juli`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=8)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Agustus`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=9)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `September`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=10)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Oktober`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=11)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `November`,
-     ifnull((SELECT count(id_kedatangan) FROM (data_kedatangan)WHERE((Month(tanggal)=12)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Desember`
-    from data_kedatangan GROUP BY YEAR(tanggal) limit 1");
+     $sql= $this->db->query("call statistik_kedatangan()");
      return $sql;
     } 
 

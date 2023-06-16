@@ -76,37 +76,17 @@ class KeberangkatanModel extends Model
     }
 
     function total_keberangkatan(){
-        $query = $this->table('data_keberangkatan')->get();
-        return $query->getNumRows();
+        return $this->db->query('call getTotalKeberangkatan()');
       }
     
     function statistik_keberangkatan()
       {     
-       $sql= $this->db->query("select
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=1)AND (YEAR(tanggal)=YEAR(now())))),0) AS `Januari`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=2)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Februari`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=3)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Maret`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=4)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `April`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=5)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Mei`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=6)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Juni`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=7)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Juli`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=8)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Agustus`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=9)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `September`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=10)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Oktober`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=11)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `November`,
-       ifnull((SELECT count(id_keberangkatan) FROM (data_keberangkatan)WHERE((Month(tanggal)=12)AND (YEAR(tanggal)=YEAR(NOW())))),0) AS `Desember`
-      from data_kedatangan GROUP BY YEAR(tanggal) limit 1");
+       $sql= $this->db->query("call statistik_keberangkatan()");
        return $sql;
       }
 
     function view_all_keberangkatan($tglawal,$tglakhir){
-        $sql = $this->db->query("SELECT a.id_keberangkatan, data_kapal.nama_kapal, data_kapal.gt, data_kapal.panjang, a.tujuan, 
-        a.abk, a.tanggal, a.jam, data_tangkahan.nama AS nama_dermaga, a.status,
-        a.es, a.air, a.solar, a.oli, a.bensin, a.lainnya, a.keterangan
-        FROM data_keberangkatan a
-        LEFT JOIN data_kapal ON a.id_kapal = data_kapal.id 
-        LEFT JOIN data_tangkahan ON a.dermaga = data_tangkahan.id_tangkahan 
-        WHERE status_approval=1 AND a.tanggal BETWEEN '$tglawal' and '$tglakhir'")->getResult();
+        $sql = $this->db->query("call view_all_keberangkatan('$tglawal','$tglakhir');")->getResult();
         return $sql;
     } 
 }

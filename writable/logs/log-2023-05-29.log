@@ -1,0 +1,64 @@
+CRITICAL - 2023-05-29 21:07:18 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:08:35 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:08:51 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:09:13 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:10:18 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:13:05 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:56:37 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-29 21:56:47 --> A non-numeric value encountered
+#0 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\laragon\\www\\...', 18, Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}

@@ -6,11 +6,6 @@ use \Hermawan\DataTables\DataTable;
 
 class Kedatangan extends BaseController
 {
-    function __construct()
-    {
-        $this->kedatangans = new KedatanganModel();
-    }
-
     public function index()
     {
         return view('kedatangan/index');
@@ -20,10 +15,10 @@ class Kedatangan extends BaseController
     {
         $db = \Config\Database::connect();
         $builder = $db->table('data_kedatangan b ')
-                ->select('b.id_kedatangan, a.nama_kapal, b.asal, b.tanggal, c.nama AS tangkahan, b.status, b.status_approval')
+                ->select('b.id_kedatangan, a.nama_kapal, b.tanggal, b.jam, c.nama AS tangkahan, b.status, b.status_approval')
                 ->join('data_kapal a', 'a.id=b.id_kapal')
                 ->join('data_tangkahan c', 'b.dermaga=c.id_tangkahan')
-                ->orderBy('id_kedatangan');
+                ->orderBy('id_kedatangan DESC');
 
         return DataTable::of($builder)
             ->addNumbering()
@@ -57,14 +52,16 @@ class Kedatangan extends BaseController
 
     public function add()
     {
-        $data['kapal'] = $this->kedatangans->getKapal()->getResult();;
-        $data['ikan'] = $this->kedatangans->getIkan()->getResult();;
-        $data['dermaga'] = $this->kedatangans->getDermaga()->getResult();;
+        $kedatangans = new KedatanganModel();
+        $data['kapal'] = $kedatangans->getKapal()->getResult();;
+        $data['ikan'] = $kedatangans->getIkan()->getResult();;
+        $data['dermaga'] = $kedatangans->getDermaga()->getResult();;
         return view('kedatangan/create',$data);
     }
 
     public function store()
     {
+        $kedatangans = new KedatanganModel();
         if (!$this->validate([
             'id_kapal' => [
                 'rules' => 'required',
@@ -132,7 +129,7 @@ class Kedatangan extends BaseController
             'status' => $this->request->getVar('status')
         );
       
-        $this->kedatangans->saveKedatangan($data_kedatangan);
+        $kedatangans->saveKedatangan($data_kedatangan);
  
         session()->setFlashdata('message', 'Tambah Data Kedatangan Berhasil');
         return redirect()->to('/kedatangan');
@@ -144,9 +141,9 @@ class Kedatangan extends BaseController
         $data = array(
             'kedatangan' => $kedatanganModel->find($id)
         );
-        $data['kapal'] = $this->kedatangans->getKapal()->getResult();;
-        $data['tangkahan'] = $this->kedatangans->getDermaga()->getResult();;
-        $data['ikan'] = $this->kedatangans->getIkan()->getResult();;
+        $data['kapal'] = $kedatanganModel->getKapal()->getResult();;
+        $data['tangkahan'] = $kedatanganModel->getDermaga()->getResult();;
+        $data['ikan'] = $kedatanganModel->getIkan()->getResult();;
         return view('kedatangan/edit', $data);
     }
 
@@ -170,8 +167,8 @@ class Kedatangan extends BaseController
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back();
         }
- 
-        $this->kedatangans->update($id, [
+        $kedatangans = new KedatanganModel();
+        $kedatangans->update($id, [
             'id_kapal' => $this->request->getVar('id_kapal'),
             'asal' => $this->request->getVar('asal'),
             'tanggal' => $this->request->getVar('tanggal'),
@@ -204,7 +201,8 @@ class Kedatangan extends BaseController
 
     public function approve($id)
     { 
-        $this->kedatangans->update($id, [
+        $kedatangans = new KedatanganModel();
+        $kedatangans->update($id, [
             'approve_by' => $this->request->getVar('approve_by'),
             'status_approval' => 1
         ]);
@@ -214,11 +212,12 @@ class Kedatangan extends BaseController
 
     function delete($id)
     {
-        $dataKedatangan = $this->kedatangans->find($id);
+        $kedatangans = new KedatanganModel();
+        $dataKedatangan = $kedatangans->find($id);
         if (empty($dataKedatangan)) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Kedatangan Tidak ditemukan !');
         }
-        $this->kedatangans->delete($id);
+        $kedatangans->delete($id);
         session()->setFlashdata('message', 'Data Kedatangan Berhasil Dihapus');
         return redirect()->to('/kedatangan');
     }

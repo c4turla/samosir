@@ -49,7 +49,12 @@
             </tr>
         </tbody>
     </table>
-    <p style="text-align: right;">Sibolga, <?php date_default_timezone_set("Asia/Jakarta"); echo date('d-M-Y'); ?> </p>
+
+    <p style="text-align: right;">Sibolga, <?php
+        $date = new DateTime($bongkar['tanggal']);
+        $formattedDate = date_format($date, 'd-M-Y');
+        echo $formattedDate;
+    ?></p>
     <p>A.n Kepala Pelabuhan Perikanan<br />Nusantara Sibolga,</p>
     <table style="border-collapse: collapse; width: 97.0994%; height: 123px;" border="0">
         <tbody>
@@ -61,7 +66,7 @@
                 </td>
             </tr>
             <tr style="height: 59px;">
-                <td style="width: 45.4231%; height: 59px;">&nbsp;</td>
+                <td style="width: 45.4231%; height: 59px;"><img src="<?='images/tandatangan/'.$bongkar['ttd']; ?>" width="50%"></td>
                 <td style="width: 10.59784%; height: 59px;">&nbsp;</td>
                 <td style="width: 44.9789%; height: 59px;">&nbsp;</td>
             </tr>

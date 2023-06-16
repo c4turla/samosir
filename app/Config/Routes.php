@@ -83,14 +83,20 @@ $routes->get('/lang/{locale}', 'Language::index', ['filter' => 'usersAuth']);
 // Keberangkatan
 $routes->get('/keberangkatan', 'Keberangkatan::index', ['filter' => 'usersAuth']);
 $routes->get('/keberangkatan-add', 'Keberangkatan::add', ['filter' => 'usersAuth']);
+$routes->get('datakeberangkatan', 'Keberangkatan::ajax_keberangkatan');
 // Bongkar
 $routes->get('/bongkar', 'Bongkar::index', ['filter' => 'usersAuth']);
+$routes->get('/approvebongkar', 'Bongkar::approve', ['filter' => 'usersAuth']);
+$routes->get('bongkar/approve/(:num)', 'Bongkar::edit/$1', ['filter' => 'usersAuth']);
 $routes->get('/bongkar-add', 'Bongkar::add', ['filter' => 'usersAuth']);
 $routes->get('bongkar/print/(:num)', 'Bongkar::cetak/$1', ['filter' => 'usersAuth']);
+$routes->get('databongkar', 'Bongkar::ajax_bongkar');
+$routes->get('dataapprove', 'Bongkar::ajax_approve');
 // Olah Gerak
 $routes->get('/olahgerak', 'Olahgerak::index', ['filter' => 'usersAuth']);
 $routes->get('/olah-add', 'Olahgerak::add', ['filter' => 'usersAuth']);
 $routes->get('olah/edit/(:num)', 'Olahgerak::edit/$1', ['filter' => 'usersAuth']);
+$routes->get('dataolah', 'Olahgerak::ajax_olahgerak');
 //Laporan
 $routes->get('/lap-kapal', 'Laporan::kapal', ['filter' => 'usersAuth']);
 $routes->get('/lap-kedatangan', 'Laporan::Kedatangan', ['filter' => 'usersAuth']);
@@ -99,10 +105,14 @@ $routes->get('/lap-jenisikan', 'Laporan::jenis_ikan', ['filter' => 'usersAuth'])
 $routes->get('/lap-gt', 'Laporan::gt', ['filter' => 'usersAuth']);
 $routes->get('/lap-alattangkap', 'Laporan::alat_tangkap', ['filter' => 'usersAuth']);
 //Api
-$routes->resource('api/kapal', ['filter' => 'apiFilter']);
+//$routes->resource('api/kapal', ['filter' => 'apiFilter']);
 $routes->resource('api/ikan',['filter' => 'apiFilter']);
+$routes->get('api/getikan', 'Api\Ikan::getIkan');
 $routes->resource('api/kedatangan');
 $routes->resource('api/keberangkatan');
+$routes->resource('api/kapal');
+$routes->get('api/getkapal', 'Api\Kapal::getKapal');
+$routes->get('api/getkapal/(:num)', 'Api\Kapal::getKapal/$1');
 //$routes->resource('api/register');
 $routes->post('api/register', 'Api\Register::index');
 //Jadwal

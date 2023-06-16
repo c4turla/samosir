@@ -44,7 +44,7 @@
                 <!-- end row -->
 
                 <div class="table-responsive">
-                    <table class="table align-middle datatable dt-responsive table-check nowrap" style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
+                <table id="bongkar" class="table align-middle  dt-responsive table-check nowrap" style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
                                 <th style="width: 30px;">
@@ -56,52 +56,13 @@
                                 <th>Nomor Surat</th>
                                 <th>Nama Nakhoda</th>
                                 <th>Nama Kapal</th>
-                                <th>GT</th>
-                                <th>Tanda Pengenal</th>
-                                <th>Jam/No Urut</th>
+                                <th>Syahbandar</th>
+                                <th>Jam</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            $key = 0;
-                            foreach ($bongkar as $row) : 
-                            ?>
-                                <tr>
-                                    <td>
-                                        <?= ++$key ?>
-                                    </td>
-                                    <td>
-                                    <a href="javascript: void(0);" class="text-dark fw-medium"><?= $row->no_surat; ?></a>
-                                    </td>
-                                    <td><?= $row->nama_nakhoda; ?> </td>
-
-                                    <td>
-                                        <?= $row->nama_kapal; ?>
-                                    </td>
-                                    <td>
-                                        <?= $row->gt; ?>
-                                    </td>
-                                    <td>
-                                        <?= $row->tanda_pengenal; ?>
-                                    </td>
-                                    <td>
-                                        <?= $row->jam; ?> / <?= $row->no_urut; ?>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="bx bx-dots-horizontal-rounded"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li><a class="dropdown-item" href="<?= base_url("bongkar/print"); ?>/<?= $row->id_bongkar; ?>" target="_blank">Print</a></li>
-                                                <li><a class="dropdown-item tombol-hapus" href="<?= base_url("bongkar/delete"); ?>/<?= $row->id_bongkar; ?>">Hapus</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                <?php   endforeach;    ?>
-                                </tr>
-
                         </tbody>
                     </table>
                 </div>
@@ -114,4 +75,37 @@
     <!-- end col -->
 </div>
 <!-- end row -->
+<script type="text/javascript">
+    //Hapus Data
+    function confirmation(ev) {
+        ev.preventDefault();
+        var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+        console.log(urlToRedirect); 
+
+    Swal.fire({
+        title: "Apakah Anda Yakin?",
+        text: "Data ini akan dihapus!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#2ab57d",
+        cancelButtonColor: "#fd625e",
+        confirmButtonText: "Ya, Hapus Data!"
+    }).then((result) => {
+        if (result.value) {
+            window.location.href = urlToRedirect;
+        }
+        })
+    };
+
+    $(document).ready(function() {
+        $('#bongkar').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "<?php echo site_url('databongkar') ?>",
+            columnDefs: [
+            { targets: -1, orderable: false}, //target -1 means last column
+             ],
+        });
+    });
+  </script>
 <?= $this->endSection() ?>

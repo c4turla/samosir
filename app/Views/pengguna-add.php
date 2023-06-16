@@ -77,6 +77,7 @@
                                         <select class="form-select" name="role">
                                             <option>-Pilih Role-</option>
                                             <option value=1>Administrator</option>
+                                            <option value=3>Syahbandar</option>
                                             <option value=2>Operator</option>
                                         </select>
                                     </div>

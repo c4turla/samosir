@@ -44,7 +44,7 @@
                 <!-- end row -->
 
                 <div class="table-responsive">
-                    <table class="table align-middle datatable dt-responsive table-check nowrap" style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
+                    <table id="tabelolah" class="table align-middle  dt-responsive table-check nowrap" style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
                                 <th style="width: 30px;">
@@ -54,45 +54,15 @@
                                     </div>
                                 </th>
                                 <th>Nama Kapal</th>
-                                <th>Tanggal/Jam</th>
+                                <th>Tanggal</th>
+                                <th>Jam</th>
                                 <th>Dermaga</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            $key = 0;
-                            foreach ($olahgerak as $row) : 
-                            ?>
-                                <tr>
-                                    <td>
-                                        <?= ++$key ?>
-                                    </td>
-
-                                    <td><a href="javascript: void(0);" class="text-dark fw-medium"><?= $row->nama_kapal; ?></a> </td>
-                                    <td>
-                                        <?= $row->tanggal; ?> <?= $row->jam; ?>
-                                    </td>
-                                    <td>
-                                        <?= $row->nama; ?>
-                                    </td>
-                                    <td>
-                                        <?= $row->status; ?>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="bx bx-dots-horizontal-rounded"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li><a class="dropdown-item" href="<?= base_url("olah/edit"); ?>/<?= $row->id_olah_gerak; ?>">Edit</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                <?php   endforeach;    ?>
-                                </tr>
-
+                          
                         </tbody>
                     </table>
                 </div>
@@ -105,4 +75,19 @@
     <!-- end col -->
 </div>
 <!-- end row -->
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('#tabelolah').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "<?php echo site_url('dataolah') ?>",
+            columnDefs: [{
+                    targets: -1,
+                    orderable: false
+                }, //target -1 means last column
+            ],
+        });
+    });
+</script>
 <?= $this->endSection() ?>

@@ -1,0 +1,83 @@
+CRITICAL - 2023-05-03 03:55:21 --> Unable to find an available Sodium encryption handler.
+#0 C:\laragon\www\sikapnew\system\Encryption\Encryption.php(96): CodeIgniter\Encryption\Exceptions\EncryptionException::forNoHandlerAvailable('Sodium')
+#1 C:\laragon\www\sikapnew\system\Config\Services.php(213): CodeIgniter\Encryption\Encryption->__construct(Object(Config\Encryption))
+#2 C:\laragon\www\sikapnew\system\Config\BaseService.php(248): CodeIgniter\Config\Services::encrypter()
+#3 C:\laragon\www\sikapnew\app\Controllers\Ikan.php(15): CodeIgniter\Config\BaseService::__callStatic('encrypter', Array)
+#4 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Ikan->index()
+#5 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ikan))
+#6 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#9 {main}
+ERROR - 2023-05-03 04:15:29 --> Unknown column 'b.jam c.nama' in 'field list'
+CRITICAL - 2023-05-03 04:15:29 --> Unknown column 'b.jam c.nama' in 'field list'
+#0 C:\laragon\www\sikapnew\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `b`.`id_...', 0)
+#1 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `b`.`id_...')
+#2 C:\laragon\www\sikapnew\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `b`.`id_...')
+#3 C:\laragon\www\sikapnew\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `b`.`id_...', Array, false)
+#4 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(219): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTableQuery.php(70): Hermawan\DataTables\DataTableQuery->queryResult()
+#6 C:\laragon\www\sikapnew\vendor\hermawan\codeigniter4-datatables\src\DataTable.php(176): Hermawan\DataTables\DataTableQuery->getDataResult()
+#7 C:\laragon\www\sikapnew\app\Controllers\Kedatangan.php(49): Hermawan\DataTables\DataTable->toJson()
+#8 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Kedatangan->ajax_kedatangan()
+#9 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kedatangan))
+#10 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2023-05-03 21:12:52 --> Expired token
+#0 C:\laragon\www\sikapnew\app\Filters\ApiFilter.php(51): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', Object(Firebase\JWT\Key))
+#1 C:\laragon\www\sikapnew\system\Filters\Filters.php(173): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('api/ikan', 'before')
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-03 21:15:31 --> Argument 2 passed to CodeIgniter\Router\RouteCollection::resource() must be of the type array or null, string given, called in C:\laragon\www\sikapnew\app\Config\Routes.php on line 105
+#0 C:\laragon\www\sikapnew\app\Config\Routes.php(105): CodeIgniter\Router\RouteCollection->resource('api/ikan/getika...', 'Api\\Ikan::getIk...')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(713): require('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-03 21:16:02 --> Argument 2 passed to CodeIgniter\Router\RouteCollection::resource() must be of the type array or null, string given, called in C:\laragon\www\sikapnew\app\Config\Routes.php on line 105
+#0 C:\laragon\www\sikapnew\app\Config\Routes.php(105): CodeIgniter\Router\RouteCollection->resource('api/getikan', 'Api\\Ikan::getIk...')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(713): require('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-03 21:16:19 --> Argument 2 passed to CodeIgniter\Router\RouteCollection::resource() must be of the type array or null, string given, called in C:\laragon\www\sikapnew\app\Config\Routes.php on line 105
+#0 C:\laragon\www\sikapnew\app\Config\Routes.php(105): CodeIgniter\Router\RouteCollection->resource('api/getikan', 'Api\\Ikan::getIk...')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(713): require('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-03 21:16:24 --> Argument 2 passed to CodeIgniter\Router\RouteCollection::resource() must be of the type array or null, string given, called in C:\laragon\www\sikapnew\app\Config\Routes.php on line 105
+#0 C:\laragon\www\sikapnew\app\Config\Routes.php(105): CodeIgniter\Router\RouteCollection->resource('api/getikan', 'Api\\Ikan::getIk...')
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(713): require('C:\\laragon\\www\\...')
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-03 21:53:49 --> Call to undefined method App\Models\KapalModel::getResult
+#0 C:\laragon\www\sikapnew\app\Controllers\Api\Kapal.php(37): CodeIgniter\Model->__call('getResult', Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Kapal->getKapal()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Kapal))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}
+CRITICAL - 2023-05-03 21:54:14 --> Call to undefined method App\Models\KapalModel::getResultArray
+#0 C:\laragon\www\sikapnew\app\Controllers\Api\Kapal.php(37): CodeIgniter\Model->__call('getResultArray', Array)
+#1 C:\laragon\www\sikapnew\system\CodeIgniter.php(832): App\Controllers\Api\Kapal->getKapal()
+#2 C:\laragon\www\sikapnew\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Kapal))
+#3 C:\laragon\www\sikapnew\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\sikapnew\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\laragon\www\sikapnew\system\Commands\Server\rewrite.php(43): require_once('C:\\laragon\\www\\...')
+#6 {main}

@@ -30,4 +30,15 @@ class Kapal extends ResourceController
             return $this->failNotFound('Data Dengan ID = ' . $id.' Tidak ditemukan');
         }
     }
+
+    public function getKapal($id = null)
+    {
+        $model = new KapalModel();
+        $data = $model->select('id,nama_kapal,gt')->getWhere(['id' => $id])->getResult();
+        if ($data) {
+            return $this->respond($data);
+        } else {
+            return $this->failNotFound('Kapal Dengan ID = ' . $id.' Tidak ditemukan');
+        }
+    }
 }

@@ -83,6 +83,7 @@
                                                 <select class="form-control" name="role" id="role" data-trigger>
                                                     <option value="">- Pilih Role -</option>
                                                     <option value="1" <?= ($user['role'] == "1" ? "selected" : ""); ?>>Administrator</option>
+                                                    <option value="3" <?= ($user['role'] == "3" ? "selected" : ""); ?>>Syahbandar</option>
                                                     <option value="2" <?= ($user['role'] == "2" ? "selected" : ""); ?>>Operator</option>
                                                 </select>
                                             </div>

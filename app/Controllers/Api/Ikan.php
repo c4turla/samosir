@@ -28,4 +28,13 @@ class Ikan extends ResourceController
             return $this->failNotFound('Data Dengan ID = ' . $id.' Tidak ditemukan');
         }
     }
+
+    public function getIkan()
+    {
+        // Your API code here
+        
+        $data = array('id' => 1, 'name' => 'John Doe', 'email' => 'john.doe@example.com');
+        
+        return $this->response->setJSON($data);
+    }
 }

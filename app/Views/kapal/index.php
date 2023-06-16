@@ -64,11 +64,40 @@
                             </tr>
                         </thead>
                         <tbody>
-                           
+
                         </tbody>
                     </table>
                 </div>
                 <!-- end table responsive -->
+                <div class="modal fade qr" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Download QR Code</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Cras mattis consectetur purus sit amet fermentum.
+                                    Cras justo odio, dapibus ac facilisis in,
+                                    egestas eget quam. Morbi leo risus, porta ac
+                                    consectetur ac, vestibulum at eros.</p>
+                                <p>Praesent commodo cursus magna, vel scelerisque
+                                    nisl consectetur et. Vivamus sagittis lacus vel
+                                    augue laoreet rutrum faucibus dolor auctor.</p>
+                                <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+                                    Praesent commodo cursus magna, vel scelerisque
+                                    nisl consectetur et. Donec sed odio dui. Donec
+                                    ullamcorper nulla non metus auctor
+                                    fringilla.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Download QR</button>
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
             </div>
             <!-- end card body -->
         </div>
@@ -81,21 +110,21 @@
     //Hapus Data
     function confirmation(ev) {
         ev.preventDefault();
-        var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-        console.log(urlToRedirect); 
+        var urlToRedirect = ev.currentTarget.getAttribute('href');
+        console.log(urlToRedirect);
 
-    Swal.fire({
-        title: "Apakah Anda Yakin?",
-        text: "Data ini akan dihapus!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#2ab57d",
-        cancelButtonColor: "#fd625e",
-        confirmButtonText: "Ya, Hapus Data!"
-    }).then((result) => {
-        if (result.value) {
-            window.location.href = urlToRedirect;
-        }
+        Swal.fire({
+            title: "Apakah Anda Yakin?",
+            text: "Data ini akan dihapus!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2ab57d",
+            cancelButtonColor: "#fd625e",
+            confirmButtonText: "Ya, Hapus Data!"
+        }).then((result) => {
+            if (result.value) {
+                window.location.href = urlToRedirect;
+            }
         })
     };
 
@@ -104,10 +133,12 @@
             processing: true,
             serverSide: true,
             ajax: "<?php echo site_url('datakapal') ?>",
-            columnDefs: [
-            { targets: -1, orderable: false}, //target -1 means last column
-             ],
+            columnDefs: [{
+                    targets: -1,
+                    orderable: false
+                }, //target -1 means last column
+            ],
         });
     });
-  </script>
+</script>
 <?= $this->endSection() ?>

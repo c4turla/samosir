@@ -99,7 +99,8 @@
 										<div class="col-6">
 											<span class="text-muted mb-3 lh-1 d-block text-truncate">Kedatangan</span>
 											<h4 class="mb-3">
-												<span class="counter-value" data-target="<?php echo $total_kedatangan; ?>">0</span>
+												<?php foreach ($total_kedatangan as $row) :  $total = $row->tahun_ini; ?>
+													<span class="counter-value" data-target="<?php echo number_format($total, 0, ",", ".") ?>">0</span>
 											</h4>
 										</div>
 										<div class="col-6">
@@ -107,7 +108,13 @@
 										</div>
 									</div>
 									<div class="text-nowrap">
-										<span class="ms-1 text-muted font-size-13">Lihat detail kedatangan</span>
+										<?php if ($row->total > 0) { ?>
+											<span class="badge badge-soft-success text-success">+<?php echo $row->total; ?> Kedatangan </span>
+										<?php } else { ?>
+											<span class="badge badge-soft-danger text-danger"><?php echo $row->total; ?> Kedatangan</span>
+										<?php } ?>
+										<span class="ms-1 text-muted font-size-13">Dari Bulan Lalu</span>
+									<?php endforeach; ?>
 									</div>
 								</div><!-- end card body -->
 							</div><!-- end card -->
@@ -122,7 +129,8 @@
 										<div class="col-6">
 											<span class="text-muted mb-3 lh-1 d-block text-truncate">Keberangkatan</span>
 											<h4 class="mb-3">
-												<span class="counter-value" data-target="<?php echo $total_keberangkatan; ?>">0</span>
+												<?php foreach ($total_keberangkatan as $row) :  $tahun = $row->tahun_ini; ?>
+													<span class="counter-value" data-target="<?php echo number_format($tahun, 0, ",", "."); ?>">0</span>
 											</h4>
 										</div>
 										<div class="col-6">
@@ -130,7 +138,13 @@
 										</div>
 									</div>
 									<div class="text-nowrap">
-										<span class="ms-1 text-muted font-size-13">Lihat detail keberangkatan</span>
+										<?php if ($row->total > 0) { ?>
+											<span class="badge badge-soft-success text-success">+ <?php echo $row->total; ?> Kedatangan </span>
+										<?php } else { ?>
+											<span class="badge badge-soft-danger text-danger"><?php echo $row->total; ?> Kedatangan</span>
+										<?php } ?>
+										<span class="ms-1 text-muted font-size-13">Dari Bulan Lalu</span>
+									<?php endforeach; ?>
 									</div>
 								</div><!-- end card body -->
 							</div><!-- end card -->
@@ -162,7 +176,7 @@
 											<div class="mt-4 mt-sm-0">
 												<?php foreach ($total_ikan as $val) { ?>
 													<div class="mt-2 pt-0">
-														<p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i> <?php echo $val->nama_ikan ?> : <b><?= $val->total ?> Kg</b></p>
+														<p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i> <?php echo $val->nama_ikan ?> : <b><?= number_format($val->total, 0, ",", ".") ?> Kg</b></p>
 													</div>
 												<?php } ?>
 											</div>
@@ -181,7 +195,7 @@
 										<!-- card body -->
 										<div class="card-body">
 											<div class="d-flex flex-wrap align-items-center mb-4">
-												<h5 class="card-title me-2">Total Produksi Ikan</h5>
+												<h5 class="card-title me-2">Estimasi Data Penangkapan Ikan</h5>
 												<div class="ms-auto">
 													<div>
 														<button type="button" class="btn btn-soft-primary btn-sm">
@@ -197,41 +211,46 @@
 												</div>
 												<div class="col-sm align-self-center">
 													<div class="mt-4 mt-sm-0">
-														<p class="mb-1">Total Produksi Ikan</p>
-														<?php foreach ($berat_ikan as $val) { 
-															if($val->berat_total==0){?>
-															<h4>0 Kg</h4>
-															<?php }else{ ?>
-															<h4><?= $val->berat_total ?> Kg</h4>
-														<?php } } ?>
-														<?php foreach ($selisih as $val) { 
+														<p class="mb-1">Estimasi Penangkapan Ikan</p>
+														<?php foreach ($berat_ikan as $val) {
+															if ($val->berat_total == 0) { ?>
+																<h4>0 Kg</h4>
+															<?php } else { ?>
+																<h4><?= number_format($val->berat_total, 0, ",", ".") ?> Kg</h4>
+														<?php }
+														} ?>
+														<?php foreach ($selisih as $val) {
 															$TotalBulanini = $val->TotalBulanIni;
 															$TotalBulanLalu = $val->TotalBulanLalu;
-															if (($TotalBulanini==0) or ($TotalBulanLalu==0)) {
-																$TotalBulanini==0 or $TotalBulanLalu==0 ?>
-															<p class="text-muted mb-4">Selisih <?= $TotalBulanini - $TotalBulanLalu ?> Kg ( <?= number_format(($TotalBulanini / $TotalBulanLalu) * 100) ?> % )
-																<?php if (($TotalBulanini - $TotalBulanLalu) >= 0) {
-																	echo '<i class="mdi mdi-arrow-up ms-1 text-success"></i>';
-																} else {
-																	echo '<i class="mdi mdi-arrow-down ms-1 text-warning"></i>';
-																} ?>
-															</p>
+															$Beda = $TotalBulanini - $TotalBulanLalu;
+															$TotalBulanLalu = $TotalBulanLalu == 0 || $TotalBulanLalu == null || empty($TotalBulanLalu) ? 1 : $TotalBulanLalu;
+															$Persentase = ($TotalBulanini / $TotalBulanLalu) * 100;
+															if (!empty($TotalBulanini) or (!empty($TotalBulanLalu))) {
+																$TotalBulanini == 0 or $TotalBulanLalu == 0 ?>
+																<p class="text-muted mb-4">Selisih <?= number_format($Beda, 0, ",", ".") ?> Kg ( <?= number_format($Persentase) ?> % )
+																	<?php if (($Beda) >= 0) {
+																		echo '<i class="mdi mdi-arrow-up ms-1 text-success"></i>';
+																	} else {
+																		echo '<i class="mdi mdi-arrow-down ms-1 text-warning"></i>';
+																	} ?>
+																</p>
 
-															<div class="row g-0">
-																<div class="col-6">
-																	<div>
-																		<p class="mb-2 text-muted text-uppercase font-size-11">Bulan Ini</p>
-																		<h5 class="fw-medium"><?= $TotalBulanini?> Kg</h5>
+																<div class="row g-0">
+																	<div class="col-6">
+																		<div>
+																			<p class="mb-2 text-muted text-uppercase font-size-11">Bulan Ini</p>
+																			<b class="fw-medium"><?= number_format($TotalBulanini, 0, ",", ".") ?> Kg</b>
+																		</div>
+																	</div>
+																	<div class="col-6">
+																		<div>
+																			<p class="mb-2 text-muted text-uppercase font-size-11">Bulan Lalu</p>
+																			<b class="fw-medium"><?= number_format($TotalBulanLalu, 0, ",", ".") ?> Kg</b>
+																		</div>
 																	</div>
 																</div>
-																<div class="col-6">
-																	<div>
-																		<p class="mb-2 text-muted text-uppercase font-size-11">Bulan Lalu</p>
-																		<h5 class="fw-medium"><?= $TotalBulanLalu ?> Kg</h5>
-																	</div>
-																</div>
-															</div>
-														<?php } } ?>
+														<?php }
+														} ?>
 
 													</div>
 												</div>
@@ -341,25 +360,25 @@
 										</div>
 										<div class="col-xl-4">
 											<div class="p-4">
-											<?php
-											 $key = 1;
-											 foreach ($data_kapal as $key => $val) { ?>
-												<div class="mt-3">
-													<div class="d-flex align-items-center">
-														<div class="avatar-sm m-auto">
-															<span class="avatar-title rounded-circle bg-soft-light text-dark font-size-16">
-															<?= ++$key ?>
-															</span>
-														</div>
-														<div class="flex-grow-1 ms-3">
-															<span class="font-size-16"><?= $val->nama_kapal ?></span>
-														</div>
+												<?php
+												$key = 1;
+												foreach ($data_kapal as $key => $val) { ?>
+													<div class="mt-3">
+														<div class="d-flex align-items-center">
+															<div class="avatar-sm m-auto">
+																<span class="avatar-title rounded-circle bg-soft-light text-dark font-size-16">
+																	<?= ++$key ?>
+																</span>
+															</div>
+															<div class="flex-grow-1 ms-3">
+																<span class="font-size-16"><?= $val->nama_kapal ?></span>
+															</div>
 
-														<div class="flex-shrink-0">
-															<span class="badge rounded-pill badge-soft-success font-size-12 fw-medium">+2.5%</span>
+															<div class="flex-shrink-0">
+																<span class="badge rounded-pill badge-soft-success font-size-12 fw-medium">+2.5%</span>
+															</div>
 														</div>
 													</div>
-												</div>
 												<?php } ?>
 
 												<div class="mt-4 pt-2">
@@ -462,9 +481,13 @@
 			legend: {
 				show: false
 			},
-			<?php foreach ($selisih as $val) { ?>
-			series: [<?= number_format(($val->TotalBulanIni / $val->TotalBulanLalu) * 100) ?>],
-			labels: ['Series A'],
+			<?php foreach ($selisih as $val) {
+				$TotalBulanini = $val->TotalBulanIni;
+				$TotalBulanLalu = $val->TotalBulanLalu;
+				$TotalBulanLalu = $TotalBulanLalu == 0 || $TotalBulanLalu == null || empty($TotalBulanLalu) ? 1 : $TotalBulanLalu;
+				$Persentase = ($TotalBulanini / $TotalBulanLalu) * 100; ?>
+				series: [<?= number_format($Persentase, 0, ",", ".") ?>],
+				labels: ['Series A'],
 			<?php } ?>
 		}
 
@@ -485,7 +508,7 @@
 				height: 227,
 				type: 'donut',
 			},
-			labels:<?php echo json_encode($nama_bulanan); ?>,
+			labels: <?php echo json_encode($nama_bulanan); ?>,
 			colors: piechartColors,
 			stroke: {
 				width: 0,

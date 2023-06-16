@@ -109,13 +109,13 @@
                                                     <div class="row mb-4">
                                                         <label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
                                                         <div class="col-sm-2">
-                                                            <input type="date" class="form-control" id="tanggal" name="tanggal" >
+                                                            <input type="date" class="form-control" id="tanggal" name="tanggal" readonly>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">
                                                         <label for="jam" class="col-sm-3 col-form-label">Jam</label>
                                                         <div class="col-sm-2">
-                                                            <input type="time" class="form-control" id="jam" name="jam">
+                                                            <input type="time" class="form-control" id="jam" name="jam" readonly>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">

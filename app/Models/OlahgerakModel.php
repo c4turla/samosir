@@ -57,17 +57,7 @@ class OlahgerakModel extends Model
 
     function getPilihKapal()
     {
-        return $this->db->query('SELECT a.id_kedatangan,a.id_kapal,a.tanggal, a.jam, b.nama_kapal, c.nama
-        FROM data_kedatangan AS a
-        LEFT JOIN data_kapal AS b ON a.id_kapal=b.id
-        LEFT JOIN data_tangkahan AS c ON a.dermaga=c.id_tangkahan
-        WHERE a.tanggal=CURDATE()
-          AND a.id_kedatangan NOT IN
-              ( SELECT id_kedatangan
-                FROM data_olah_gerak 
-                WHERE DATE(created_at)=CURDATE()
-              ) ');
-
+        return $this->db->query('call getKapalOlahGerak()');
     }
 
 

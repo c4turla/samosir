@@ -14,7 +14,7 @@ class BongkarModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['no_surat','id_kapal', 'id_kedatangan', 'syahbandar', 'nama_nakhoda', 'tanda_pengenal', 'jam', 'no_urut'];
+    protected $allowedFields    = ['no_surat','id_kapal', 'id_kedatangan', 'syahbandar', 'nama_nakhoda', 'tanda_pengenal', 'jam', 'no_urut', 'tanggal', 'status_approval','ttd'];
 
     // Dates
     protected $useTimestamps = true;
@@ -54,17 +54,21 @@ class BongkarModel extends Model
         return $query;
     }
 
+    function getKapal()
+    {
+        $query = $this->db->table('data_kapal')
+            ->get();
+        return $query;
+    }
+
     function getPilihKapal()
     {
-        return $this->db->query('SELECT a.id_kedatangan,a.id_kapal,a.tanggal,a.jam,b.nama_kapal, b.alat_tangkap, b.gt,  b.tanda_selar
-        FROM data_kedatangan AS a
-        LEFT JOIN data_kapal AS b ON a.id_kapal=b.id
-        WHERE a.tanggal  BETWEEN (CURDATE() - INTERVAL 3 DAY) AND CURDATE()
-          AND a.id_kedatangan NOT IN
-              ( SELECT id_kedatangan
-                FROM data_bongkar 
-              ) ');
+        return $this->db->query('call getPilihKapal()');
+    }
 
+    function getSyahbandar()
+    {
+        return $this->db->query('call getSyahbandar()');
     }
 
 

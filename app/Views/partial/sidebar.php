@@ -57,7 +57,11 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="<?= base_url('/kedatangan') ?>" data-key="t-kedatangan"><?= lang('Files.Kedatangan_Kapal') ?></a></li>
+                        <?php if (session()->get('role') == '3') { ?>
+                        <li><a href="<?= base_url('/approvebongkar') ?>" data-key="t-bongkar">Pembongkaran Ikan</a></li>
+                        <?php }else{ ?> 
                         <li><a href="<?= base_url('/bongkar') ?>" data-key="t-bongkar">Pembongkaran Ikan</a></li>
+                        <?php } ?>
                         <li><a href="<?= base_url('/olahgerak') ?>" data-key="t-olahgerak">Olah Gerak</a></li>
                         <li><a href="<?= base_url('/keberangkatan') ?>" data-key="t-keberangkatan"><?= lang('Files.Keberangkatan_Kapal') ?></a></li>
                     </ul>

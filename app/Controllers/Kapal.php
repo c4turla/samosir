@@ -21,7 +21,7 @@ class Kapal extends BaseController
         return DataTable::of($kapalModel)
             ->addNumbering()
             ->format('nama_kapal', function ($row) {
-                    return '<a href="javascript: void(0);" class="text-dark fw-medium">'.$row.'</a>';
+                return '<a href="javascript: void(0);" class="text-dark fw-medium">' . $row . '</a>';
             })
             ->format('status', function ($row) {
                 if ($row >= date("Y-m-d")) {
@@ -30,7 +30,11 @@ class Kapal extends BaseController
                     return '<div class="badge badge-soft-danger font-size-12">Expired</div>';
                 }
             })
+            ->format('panjang', function ($row) {
+                return '' . $row . ' M';
+            })
             ->add('action', function ($row) {
+                $qr = base_url("kapal/qr") . '/' . $row->id;
                 $edit = base_url("kapal/edit") . '/' . $row->id;
                 $hapus = base_url("kapal/delete") . '/' . $row->id;
                 return '<div class="dropdown">
@@ -38,6 +42,7 @@ class Kapal extends BaseController
                     <i class="bx bx-dots-horizontal-rounded"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".qr" href="' . $qr . '">QR Code</a></li>
                     <li><a class="dropdown-item" href="' . $edit . '">Edit</a></li>
                     <li><a class="dropdown-item" onclick="confirmation(event)" href="' . $hapus . '">Hapus</a></li>
                 </ul>
@@ -182,7 +187,7 @@ class Kapal extends BaseController
         $dataKapal = $kapals->find($id);
         if (empty($dataKapal)) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Kapal Tidak ditemukan !');
-        }        
+        }
         $kapals->delete($id);
         session()->setFlashdata('message', 'Data Kapal Berhasil Dihapus');
         return redirect()->to('/kapal');
