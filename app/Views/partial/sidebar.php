@@ -58,12 +58,28 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="<?= base_url('/kedatangan') ?>" data-key="t-kedatangan"><?= lang('Files.Kedatangan_Kapal') ?></a></li>
                         <?php if (session()->get('role') == '3') { ?>
-                        <li><a href="<?= base_url('/approvebongkar') ?>" data-key="t-bongkar">Pembongkaran Ikan</a></li>
+                        <li><a href="<?= base_url('/approvebongkar') ?>" data-key="t-bongkar">Penimbangan Ikan</a></li>
                         <?php }else{ ?> 
-                        <li><a href="<?= base_url('/bongkar') ?>" data-key="t-bongkar">Pembongkaran Ikan</a></li>
+                        <li><a href="<?= base_url('/bongkar') ?>" data-key="t-bongkar">Penimbangan Ikan</a></li>
                         <?php } ?>
                         <li><a href="<?= base_url('/olahgerak') ?>" data-key="t-olahgerak">Olah Gerak</a></li>
+                        <li><a href="<?= base_url('/uploadsurat') ?>" data-key="t-uploadsurat">Upload SPR Keberangkatan</a></li>
+                        <?php if (session()->get('role') == '3') { ?>
+                        <li><a href="<?= base_url('/keberangkatanapprove') ?>" data-key="t-keberangkatan"><?= lang('Files.Keberangkatan_Kapal') ?></a></li>
+                        <?php }else{ ?> 
                         <li><a href="<?= base_url('/keberangkatan') ?>" data-key="t-keberangkatan"><?= lang('Files.Keberangkatan_Kapal') ?></a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="archive"></i>
+                        <span data-key="t-jasa"><?= lang('Files.Jasa') ?></span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="<?= base_url('/peralatan') ?>" data-key="t-kedatangan"><?= lang('Files.Peralatan') ?></a></li>
+                        <li><a href="<?= base_url('/air') ?>" data-key="t-air"><?= lang('Files.Air') ?></a></li>
                     </ul>
                 </li>
 

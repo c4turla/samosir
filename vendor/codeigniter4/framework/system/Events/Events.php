@@ -16,6 +16,8 @@ use Config\Services;
 
 /**
  * Events
+ *
+ * @see \CodeIgniter\Events\EventsTest
  */
 class Events
 {
@@ -50,19 +52,21 @@ class Events
      * Stores information about the events
      * for display in the debug toolbar.
      *
-     * @var array<array<string, float|string>>
+     * @var list<array<string, float|string>>
      */
     protected static $performanceLog = [];
 
     /**
      * A list of found files.
      *
-     * @var string[]
+     * @var list<string>
      */
     protected static $files = [];
 
     /**
      * Ensures that we have a events file ready.
+     *
+     * @return void
      */
     public static function initialize()
     {
@@ -71,8 +75,7 @@ class Events
             return;
         }
 
-        /** @var Modules $config */
-        $config = config('Modules');
+        $config = config(Modules::class);
         $events = APPPATH . 'Config' . DIRECTORY_SEPARATOR . 'Events.php';
         $files  = [];
 
@@ -109,6 +112,8 @@ class Events
      * @param string   $eventName
      * @param callable $callback
      * @param int      $priority
+     *
+     * @return void
      */
     public static function on($eventName, $callback, $priority = self::PRIORITY_NORMAL)
     {
@@ -223,6 +228,8 @@ class Events
      * removed, otherwise all listeners for all events are removed.
      *
      * @param string|null $eventName
+     *
+     * @return void
      */
     public static function removeAllListeners($eventName = null)
     {
@@ -235,6 +242,8 @@ class Events
 
     /**
      * Sets the path to the file that routes are read from.
+     *
+     * @return void
      */
     public static function setFiles(array $files)
     {
@@ -244,7 +253,7 @@ class Events
     /**
      * Returns the files that were found/loaded during this request.
      *
-     * @return string[]
+     * @return list<string>
      */
     public static function getFiles()
     {
@@ -255,6 +264,8 @@ class Events
      * Turns simulation on or off. When on, events will not be triggered,
      * simply logged. Useful during testing when you don't actually want
      * the tests to run.
+     *
+     * @return void
      */
     public static function simulate(bool $choice = true)
     {
@@ -264,7 +275,7 @@ class Events
     /**
      * Getter for the performance log records.
      *
-     * @return array<array<string, float|string>>
+     * @return list<array<string, float|string>>
      */
     public static function getPerformanceLogs()
     {

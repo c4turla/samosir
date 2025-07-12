@@ -97,6 +97,13 @@ $routes->get('/olahgerak', 'Olahgerak::index', ['filter' => 'usersAuth']);
 $routes->get('/olah-add', 'Olahgerak::add', ['filter' => 'usersAuth']);
 $routes->get('olah/edit/(:num)', 'Olahgerak::edit/$1', ['filter' => 'usersAuth']);
 $routes->get('dataolah', 'Olahgerak::ajax_olahgerak');
+// Upload Surat
+$routes->get('/uploadsurat', 'UploadSurat::index', ['filter' => 'usersAuth']);
+$routes->get('dataupload', 'UploadSurat::ajax_upload');
+$routes->get('/uploadsurat-add', 'UploadSurat::add', ['filter' => 'usersAuth']);
+$routes->post('/uploadsurat/store', 'UploadSurat::store', ['filter' => 'usersAuth']);
+$routes->get('/uploadsurat/edit/(:num)', 'UploadSurat::edit/$1', ['filter' => 'usersAuth']);
+$routes->get('uploadsurat/delete/(:num)', 'UploadSurat::delete/$1', ['filter' => 'usersAuth']);
 //Laporan
 $routes->get('/lap-kapal', 'Laporan::kapal', ['filter' => 'usersAuth']);
 $routes->get('/lap-kedatangan', 'Laporan::Kedatangan', ['filter' => 'usersAuth']);

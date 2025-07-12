@@ -11,8 +11,6 @@
 
 namespace Composer\XdebugHandler;
 
-use Composer\Pcre\Preg;
-
 /**
  * Process utility functions
  *
@@ -40,10 +38,10 @@ class Process
 
         $quote = strpbrk($arg, " \t") !== false || $arg === '';
 
-        $arg = Preg::replace('/(\\\\*)"/', '$1$1\\"', $arg, -1, $dquotes);
+        $arg = preg_replace('/(\\\\*)"/', '$1$1\\"', $arg, -1, $dquotes);
 
         if ($meta) {
-            $meta = $dquotes || Preg::isMatch('/%[^%]+%/', $arg);
+            $meta = $dquotes || preg_match('/%[^%]+%/', $arg);
 
             if (!$meta) {
                 $quote = $quote || strpbrk($arg, '^&|<>()') !== false;
@@ -53,11 +51,11 @@ class Process
         }
 
         if ($quote) {
-            $arg = '"'.(Preg::replace('/(\\\\*)$/', '$1$1', $arg)).'"';
+            $arg = '"'.preg_replace('/(\\\\*)$/', '$1$1', $arg).'"';
         }
 
         if ($meta) {
-            $arg = Preg::replace('/(["^&|<>()%])/', '^$1', $arg);
+            $arg = preg_replace('/(["^&|<>()%])/', '^$1', $arg);
         }
 
         return $arg;
@@ -66,24 +64,18 @@ class Process
     /**
      * Escapes an array of arguments that make up a shell command
      *
-     * @param string[] $args Argument list, with the module name first
+     * @param array $args Argument list, with the module name first
      *
      * @return string The escaped command line
      */
     public static function escapeShellCommand(array $args)
     {
-        $command = '';
-        $module = array_shift($args);
-
-        if ($module !== null) {
-            $command = self::escape($module, true, true);
-
-            foreach ($args as $arg) {
-                $command .= ' '.self::escape($arg);
-            }
+        $cmd = self::escape(array_shift($args), true, true);
+        foreach ($args as $arg) {
+            $cmd .= ' '.self::escape($arg);
         }
 
-        return $command;
+        return $cmd;
     }
 
     /**

@@ -32,10 +32,8 @@ trait Expeditable
      * @throws \PHPUnit\Framework\Exception
      * @throws \PHPUnit\Framework\ExpectationFailedException
      * @throws \Throwable
-     *
-     * @return mixed
      */
-    protected function runTest()
+    protected function runTest(): mixed
     {
         $timer = new Timer();
         $timer->start();

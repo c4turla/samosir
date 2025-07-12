@@ -17,6 +17,8 @@ use Config\Services;
 
 /**
  * Handle a redirect response
+ *
+ * @see \CodeIgniter\HTTP\RedirectResponseTest
  */
 class RedirectResponse extends Response
 {
@@ -24,7 +26,7 @@ class RedirectResponse extends Response
      * Sets the URI to redirect to and, optionally, the HTTP status code to use.
      * If no code is provided it will be automatically determined.
      *
-     * @param string   $uri  The URI to redirect to
+     * @param string   $uri  The URI path (relative to baseURL) to redirect to
      * @param int|null $code HTTP status code
      *
      * @return $this
@@ -44,13 +46,13 @@ class RedirectResponse extends Response
      * Sets the URI to redirect to but as a reverse-routed or named route
      * instead of a raw URI.
      *
-     * @param string $route Named route or Controller::method
+     * @param string $route Route name or Controller::method
      *
      * @return $this
      *
      * @throws HTTPException
      */
-    public function route(string $route, array $params = [], int $code = 302, string $method = 'auto')
+    public function route(string $route, array $params = [], ?int $code = null, string $method = 'auto')
     {
         $namedRoute = $route;
 

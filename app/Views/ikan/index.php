@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <div class="mb-4">
-                            <h5 class="card-title">List Data Jenis Ikan <?= $id; ?> <br/> <?= $decrypt; ?></h5>
+                            <h5 class="card-title">List Data Jenis Ikan</h5>
                         </div>
                     </div>
                     <div class="col-sm-auto">

@@ -15,6 +15,7 @@ use CodeIgniter\Autoloader\FileLocator;
 use CodeIgniter\Files\FileCollection;
 use CodeIgniter\HTTP\URI;
 use CodeIgniter\Publisher\Exceptions\PublisherException;
+use Config\Publisher as PublisherConfig;
 use RuntimeException;
 use Throwable;
 
@@ -39,7 +40,7 @@ class Publisher extends FileCollection
     /**
      * Array of discovered Publishers.
      *
-     * @var array<string, self[]|null>
+     * @var array<string, list<self>|null>
      */
     private static array $discovered = [];
 
@@ -59,7 +60,7 @@ class Publisher extends FileCollection
     /**
      * List of file published curing the last write operation.
      *
-     * @var string[]
+     * @var list<string>
      */
     private array $published = [];
 
@@ -94,7 +95,7 @@ class Publisher extends FileCollection
     /**
      * Discovers and returns all Publishers in the specified namespace directory.
      *
-     * @return self[]
+     * @return list<self>
      */
     final public static function discover(string $directory = 'Publishers'): array
     {
@@ -162,7 +163,7 @@ class Publisher extends FileCollection
         $this->replacer = new ContentReplacer();
 
         // Restrictions are intentionally not injected to prevent overriding
-        $this->restrictions = config('Publisher')->restrictions;
+        $this->restrictions = config(PublisherConfig::class)->restrictions;
 
         // Make sure the destination is allowed
         foreach (array_keys($this->restrictions) as $directory) {
@@ -251,7 +252,7 @@ class Publisher extends FileCollection
     /**
      * Returns the files published by the last write operation.
      *
-     * @return string[]
+     * @return list<string>
      */
     final public function getPublished(): array
     {
@@ -265,7 +266,7 @@ class Publisher extends FileCollection
     /**
      * Verifies and adds paths to the list.
      *
-     * @param string[] $paths
+     * @param list<string> $paths
      *
      * @return $this
      */
@@ -293,7 +294,7 @@ class Publisher extends FileCollection
     /**
      * Downloads and stages files from an array of URIs.
      *
-     * @param string[] $uris
+     * @param list<string> $uris
      *
      * @return $this
      */
@@ -465,7 +466,7 @@ class Publisher extends FileCollection
     /**
      * Verify this is an allowed file for its destination.
      */
-    private function verifyAllowed(string $from, string $to)
+    private function verifyAllowed(string $from, string $to): void
     {
         // Verify this is an allowed file for its destination
         foreach ($this->restrictions as $directory => $pattern) {

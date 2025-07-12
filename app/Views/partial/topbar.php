@@ -5,19 +5,19 @@
             <div class="navbar-brand-box">
                 <a href="/" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="<?= base_url('assets/images/logo-head.png') ?>" alt="" height="34">
+                        <img src="assets/images/logo-head.png" alt="" height="34">
                     </span>
                     <span class="logo-lg">
-                        <img src="<?= base_url('assets/images/logo-head.png') ?>" alt="" height="34"> <span class="logo-txt">PPN SIBOLGA</span>
+                        <img src="assets/images/logo-head.png" alt="" height="34"> <span class="logo-txt">PPN SIBOLGA<span class="badge bg-success-subtle text-success">V.2</span></span>
                     </span>
                 </a>
 
                 <a href="/" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="<?= base_url('assets/images/logo-head.png') ?>" alt="" height="34">
+                        <img src="assets/images/logo-head.png" alt="" height="34">
                     </span>
                     <span class="logo-lg">
-                        <img src="<?= base_url('assets/images/logo-head.png') ?>" alt="" height="34"> <span class="logo-txt">PPN SIBOLGA</span>
+                        <img src="assets/images/logo-head.png" alt="" height="34"> <span class="logo-txt">PPN SIBOLGA<span class="badge bg-success-subtle text-success">V.2</span></span>
                     </span>
                 </a>
             </div>
@@ -67,7 +67,7 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon position-relative" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="bell" class="icon-lg"></i>
-                    <span class="badge bg-danger rounded-pill">1</span>
+                    <span class="badge bg-danger rounded-pill">2</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                     <div class="p-3">
@@ -75,18 +75,35 @@
                             <div class="col">
                                 <h6 class="m-0"> Notifikasi </h6>
                             </div>
+
                         </div>
                     </div>
                     <div data-simplebar style="max-height: 230px;">
-                        <a href="assets/images/User-Manual-Aplikasi-Samosir.pdf" class="text-reset notification-item">
+                        <a href="assets/User-Manual-Aplikasi-Samosir.pdf" class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="<?= base_url('assets/images/user-manual-icon-6.jpg') ?>" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="assets/images/user-manual-icon-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">User Manual Aplikasi</h6>
                                     <div class="font-size-13 text-muted">
                                         <p class="mb-1">User Manual Aplikasi SAMOSIR.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                     <div data-simplebar style="max-height: 230px;">
+                        <a href="https://play.google.com/store/apps/details?id=com.samosirapp" target="_blank" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1"><img src="<?= base_url('assets/images/qrmobapps.png') ?>" width="180px"></h6>
+                                    <div class="font-size-13 text-muted">
+                                        <p class="mb-1">Scan QR untuk Download Mobile Apps.</p>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +138,7 @@
                     <?php } ?>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/jadwal" target="_blank"><i class="mdi mdi-file font-size-16 align-middle me-1"></i> Jadwal Kapal</a>
+                    <a class="dropdown-item" href="/dashboardbaru" target="_blank"><i class="mdi mdi-home font-size-16 align-middle me-1"></i> Dashboard Baru</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> <?= lang('Files.Logout') ?></a>
                 </div>

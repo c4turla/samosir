@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Login | SAMOSIR - Sistem Infromasi dan Monitoring Aktivitas Kapal Perikanan</title>
+    <title>Login | SAMOSIR - Sistem Informasi dan Monitoring Aktivitas Kapal Perikanan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Sistem Infromasi dan Monitoring Aktivitas Kapal Perikanan" name="description" />
     <meta content="Kendariweb" name="author" />
@@ -33,16 +33,16 @@
                 <div class="auth-full-page-content d-flex p-sm-5 p-4">
                     <div class="w-100">
                         <div class="d-flex flex-column h-100">
-                            <div class="mb-4 mb-md-5 text-center">
+                            <div class="mb-2 mb-md-2 text-center">
                                 <a href="/" class="d-block auth-logo">
                                      <span class="logo-txt">PPN SIBOLGA</span><br/>
-                                     <img src="assets/images/logo.png" alt="" height="160">
+                                     <img src="assets/images/logobaru.png" alt="" height="200">
                                 </a>
                             </div>
-                            <div class="auth-content my-auto">
+                            <div class="auth-content mt-0">
                                 <div class="text-center">
                                     <h5 class="mb-0">Welcome Back !</h5>
-                                    <p class="text-muted mt-2">Sign in to continue Apps SAMOSIR.</p>
+                                    <p class="text-muted mt-2">Sign in to continue Apps SAMOSIR<span class="badge bg-success-subtle text-success">V.2</span></p>
                                 </div>
                                 <?php if (session()->getFlashdata('msg')) : ?>
                                     <div class="alert alert-danger alert-border-left alert-dismissible fade show" role="alert">
@@ -72,7 +72,7 @@
                                             <button class="btn btn-light ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                         </div>
                                     </div>
-                                    <div class="row mb-4">
+                                    <div class="row mb-2">
                                         <div class="col">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="remember-check">
@@ -83,13 +83,13 @@
                                         </div>
 
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-1">
                                         <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
                                     </div>
                                 </form>
 
                             </div>
-                            <div class="mt-4 mt-md-5 text-center">
+                            <div class="mt-0 mt-md-5 text-center">
                                 <p class="mb-0">© <script>
                                         document.write(new Date().getFullYear())
                                     </script> SAMOSIR - PPN Sibolga. Build with <i class="mdi mdi-heart text-danger"></i> by Kendariweb</p>
@@ -120,10 +120,6 @@
                         <div class="col-xl-7">
                             <div class="p-0 p-sm-4 px-xl-0">
                                 <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-indicators carousel-indicators-rounded justify-content-start ms-0 mb-0">
-                                        <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    </div>
                                     <!-- end carouselIndicators -->
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
@@ -136,19 +132,19 @@
                                                 <div class="mt-4 pt-3 pb-5">
                                                     <div class="d-flex align-items-start">
                                                         <div class="flex-shrink-0">
-                                                            <img src="assets/images/users/avatar-1.jpg" class="avatar-md img-fluid rounded-circle" alt="...">
+                                                            <img src="assets/images/users/pelabuhan.jpg" class="avatar-md img-fluid rounded-circle" alt="...">
                                                         </div>
                                                         <div class="flex-grow-1 ms-3 mb-4">
-                                                            <h5 class="font-size-18 text-white">MAKKASAU, A.Pi, M.Si
+                                                            <h5 class="font-size-18 text-white">Pelabuhan Perikanan Nusantara Sibolga
                                                             </h5>
-                                                            <p class="mb-0 text-white-50">Kepala PPN Sibolga</p>
+                                                            <p class="mb-0 text-white-50">An Kepala PPN Sibolga</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="carousel-item">
+                                      <!--  <div class="carousel-item">
                                             <div class="testi-contain text-white">
                                                 <i class="bx bxs-quote-alt-left text-success display-6"></i>
 
@@ -171,7 +167,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <!-- end carousel-inner -->
                                 </div>

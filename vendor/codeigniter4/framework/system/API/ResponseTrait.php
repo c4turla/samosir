@@ -20,9 +20,6 @@ use Config\Services;
  * Provides common, more readable, methods to provide
  * consistent HTTP responses under a variety of common
  * situations when working as an API.
- *
- * @property IncomingRequest   $request
- * @property ResponseInterface $response
  */
 trait ResponseTrait
 {
@@ -92,10 +89,12 @@ trait ResponseTrait
         if ($data === null && $status === null) {
             $status = 404;
             $output = null;
+            $this->format($data);
         } elseif ($data === null && is_numeric($status)) {
             $output = null;
+            $this->format($data);
         } else {
-            $status = empty($status) ? 200 : $status;
+            $status ??= 200;
             $output = $this->format($data);
         }
 
@@ -235,7 +234,7 @@ trait ResponseTrait
     /**
      * Used when the data provided by the client cannot be validated on one or more fields.
      *
-     * @param string|string[] $errors
+     * @param list<string>|string $errors
      *
      * @return ResponseInterface
      */
@@ -319,7 +318,7 @@ trait ResponseTrait
 
         // Determine correct response type through content negotiation if not explicitly declared
         if (
-            (empty($this->format) || ! in_array($this->format, ['json', 'xml'], true))
+            ! in_array($this->format, ['json', 'xml'], true)
             && $this->request instanceof IncomingRequest
         ) {
             $mime = $this->request->negotiate(
