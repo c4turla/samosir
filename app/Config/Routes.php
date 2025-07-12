@@ -104,6 +104,13 @@ $routes->get('/uploadsurat-add', 'UploadSurat::add', ['filter' => 'usersAuth']);
 $routes->post('/uploadsurat/store', 'UploadSurat::store', ['filter' => 'usersAuth']);
 $routes->get('/uploadsurat/edit/(:num)', 'UploadSurat::edit/$1', ['filter' => 'usersAuth']);
 $routes->get('uploadsurat/delete/(:num)', 'UploadSurat::delete/$1', ['filter' => 'usersAuth']);
+// Jasa Peralatan
+$routes->get('/peralatan', 'JasaPeralatan::index', ['filter' => 'usersAuth']);
+$routes->get('peralatan', 'JasaPeralatan::ajax_upload');
+$routes->get('/peralatan-add', 'JasaPeralatan::add', ['filter' => 'usersAuth']);
+$routes->post('/peralatan/store', 'JasaPeralatan::store', ['filter' => 'usersAuth']);
+$routes->get('/peralatan/edit/(:num)', 'JasaPeralatan::edit/$1', ['filter' => 'usersAuth']);
+$routes->get('peralatan/delete/(:num)', 'JasaPeralatan::delete/$1', ['filter' => 'usersAuth']);
 //Laporan
 $routes->get('/lap-kapal', 'Laporan::kapal', ['filter' => 'usersAuth']);
 $routes->get('/lap-kedatangan', 'Laporan::Kedatangan', ['filter' => 'usersAuth']);
