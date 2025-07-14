@@ -74,10 +74,10 @@ class JasaPeralatanModel extends Model
 
     // Pesan kesalahan validasi kustom (opsional)
     protected $validationMessages = [
-        'No_order' => [
+        'no_order' => [
             'is_unique' => 'Nomor order sudah ada.',
         ],
-        'Nama_penyewa' => [
+        'nama_penyewa' => [
             'required' => 'Nama penyewa wajib diisi.',
         ],
         'tanggal' => [
@@ -102,15 +102,15 @@ class JasaPeralatanModel extends Model
      * @param array $data Data yang akan diinsert
      * @return array Data yang sudah dimodifikasi
      */
-    protected function generateNoOrder(array $data)
+    public function generateNoOrder(array $data)
     {
         // Jika No_order sudah ada di data, jangan di-generate ulang
-        if (isset($data['data']['No_order']) && !empty($data['data']['No_order'])) {
+        if (isset($data['data']['no_order']) && !empty($data['data']['no_order'])) {
             return $data;
         }
 
         // Ambil nomor order terakhir dari database
-        $lastOrder = $this->select('No_order')
+        $lastOrder = $this->select('no_order')
                           ->orderBy('id_jasa', 'DESC') // Urutkan berdasarkan ID terbaru
                           ->first();
 
@@ -119,12 +119,12 @@ class JasaPeralatanModel extends Model
         if ($lastOrder) {
             // Ekstrak bagian numerik dari nomor order terakhir
             // Asumsi format No_order adalah '0001', '0002', dst.
-            $lastNum = (int) $lastOrder['No_order'];
+            $lastNum = (int) $lastOrder['no_order'];
             $newNumber = $lastNum + 1;
         }
 
         // Format nomor baru menjadi 4 digit dengan leading zeros (misal: 0001, 0002)
-        $data['data']['No_order'] = sprintf('%04d', $newNumber);
+        $data['data']['no_order'] = sprintf('%04d', $newNumber);
 
         return $data;
     }

@@ -11,7 +11,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Jasa</a></li>
-                    <li class="breadcrumb-item active">Pemakaian Peralatan</li>
+                    <li class="breadcrumb-item active">Air Tawar</li>
                 </ol>
             </div>
 
@@ -27,14 +27,14 @@
                 <div class="row">
                     <div class="col-sm">
                         <div class="mb-4">
-                            <h5 class="card-title">List Jasa Pemakaian Peralatan</h5>
+                            <h5 class="card-title">List Jasa Air Tawar</h5>
                         </div>
                     </div>
                     <div class="col-sm-auto">
                         <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
 
                             <div>
-                                <a href="<?= base_url('peralatan-add') ?>" class="btn btn-success"><i class="bx bx-plus me-1"></i> Tambah Jasa Peralatan</a>
+                                <a href="<?= base_url('air-add') ?>" class="btn btn-success"><i class="bx bx-plus me-1"></i> Tambah Jasa Air</a>
                             </div>
 
                         </div>
@@ -54,8 +54,11 @@
                                     </div>
                                 </th>
                                 <th style="width: 120px;">No Order</th>
-                                <th style="width: 120px;">Nama Penyewa</th>
-                                <th style="width: 120px;">Tanggal</th>
+                                <th style="width: 120px;">Nama Kapal</th>
+                                <th style="width: 120px;">Tanggal Permintaan</th>
+                                <th style="width: 120px;">Volume (M3)</th>
+                                <th style="width: 120px;">Harga/M3</th>
+                                <th style="width: 120px;">Jumlah</th>
                                 <th style="width: 120px;">Status</th>
                                 <th style="width: 120px;">Action</th>
                             </tr>
@@ -99,7 +102,7 @@
         $('#peralatan').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "<?php echo site_url('datajasa') ?>",
+            ajax: "<?php echo site_url('dataair') ?>",
             columnDefs: [{
                     targets: -1,
                     orderable: false

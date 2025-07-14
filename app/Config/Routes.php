@@ -106,11 +106,23 @@ $routes->get('/uploadsurat/edit/(:num)', 'UploadSurat::edit/$1', ['filter' => 'u
 $routes->get('uploadsurat/delete/(:num)', 'UploadSurat::delete/$1', ['filter' => 'usersAuth']);
 // Jasa Peralatan
 $routes->get('/peralatan', 'JasaPeralatan::index', ['filter' => 'usersAuth']);
-$routes->get('peralatan', 'JasaPeralatan::ajax_upload');
+$routes->get('datajasa', 'JasaPeralatan::ajax_jasa');
 $routes->get('/peralatan-add', 'JasaPeralatan::add', ['filter' => 'usersAuth']);
-$routes->post('/peralatan/store', 'JasaPeralatan::store', ['filter' => 'usersAuth']);
+$routes->post('/peralatan/storeorder', 'JasaPeralatan::storeorder', ['filter' => 'usersAuth']);
 $routes->get('/peralatan/edit/(:num)', 'JasaPeralatan::edit/$1', ['filter' => 'usersAuth']);
+$routes->get('/peralatan/bayar/(:num)', 'JasaPeralatan::bayar/$1', ['filter' => 'usersAuth']);
+$routes->get('/peralatan/detail/(:num)', 'JasaPeralatan::detail/$1', ['filter' => 'usersAuth']);
+$routes->get('/peralatan/cetakorder/(:num)', 'JasaPeralatan::cetakorder/$1', ['filter' => 'usersAuth']);
+$routes->get('/peralatan/cetakperhitungan/(:num)', 'JasaPeralatan::cetakperhitungan/$1', ['filter' => 'usersAuth']);
 $routes->get('peralatan/delete/(:num)', 'JasaPeralatan::delete/$1', ['filter' => 'usersAuth']);
+// Jasa Air Tawar
+$routes->get('/air', 'JasaAir::index', ['filter' => 'usersAuth']);
+$routes->get('dataair', 'JasaAir::ajax_jasa');
+$routes->get('/air-add', 'JasaAir::add', ['filter' => 'usersAuth']);
+$routes->post('/air/storeorder', 'JasaAir::store', ['filter' => 'usersAuth']);
+$routes->get('/air/cetakorder/(:num)', 'JasaAir::cetakorder/$1', ['filter' => 'usersAuth']);
+$routes->get('/air/edit/(:num)', 'JasaAir::edit/$1', ['filter' => 'usersAuth']);
+$routes->get('/air/bayar/(:num)', 'JasaAir::bayar/$1', ['filter' => 'usersAuth']);
 //Laporan
 $routes->get('/lap-kapal', 'Laporan::kapal', ['filter' => 'usersAuth']);
 $routes->get('/lap-kedatangan', 'Laporan::Kedatangan', ['filter' => 'usersAuth']);

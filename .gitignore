@@ -5,3 +5,9 @@
 *.log
 node_modules/
 vendor/
+writable/cache/*
+writable/debugbar/*
+writable/logs/*
+writable/session/*
+!writable/index.html
+!writable/uploads/

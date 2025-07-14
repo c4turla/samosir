@@ -13,71 +13,96 @@ class JasaPeralatan extends BaseController
         return view('jasaperalatan/index');
     }
 
-    public function ajax_upload()
+    public function ajax_jasa()
     {
         $db = \Config\Database::connect();
-        $builder = $db->table('upload_surat b')
-                ->select('b.id_upload, a.nama_kapal, b.tanggal_masuk, b.tanggal_keluar, b.path_file')
-                ->join('data_kapal a', 'a.id=b.id_kapal')
-                ->orderBy('id_upload', 'desc');
+        $builder = $db->table('jasa_peralatan')
+                ->select('id_jasa, no_order, nama_penyewa, tanggal, status_order')
+                ->orderBy('id_jasa', 'desc');
 
 
         return DataTable::of($builder)
             ->addNumbering()
-            ->format('nama_kapal', function ($row) {
+            ->format('nama_penyewa', function ($row) {
                     return '<a href="javascript: void(0);" class="text-dark fw-medium">'.$row.'</a>';
             })
+            ->format('status_order', function ($row) {
+                if ($row == "order") {
+                    return '<div class="badge badge-soft-danger font-size-12">ORDER</div>';
+                } else {
+                    return '<div class="badge badge-soft-success font-size-12">SELESAI</div>';
+                }
+            })
             ->add('action', function ($row) {
-                $edit = base_url("uploadsurat/edit") . '/' . $row->id_upload;
-                $hapus = base_url("uploadsurat/delete") . '/' . $row->id_upload;
+                $edit = base_url("peralatan/edit") . '/' . $row->id_jasa;
+                $bayar = base_url("peralatan/bayar") . '/' . $row->id_jasa;
+                $detail = base_url("peralatan/detail") . '/' . $row->id_jasa;
+                $cetakorder = base_url("peralatan/cetakorder") . '/' . $row->id_jasa;
+                $cetakperhitungan = base_url("peralatan/cetakperhitungan") . '/' . $row->id_jasa;
+                $hapus = base_url("peralatan/delete") . '/' . $row->id_jasa;              
+                $status = $row->status_order;
+                if ($status == "order") {
+                    return '<div class="dropdown">
+                <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bx bx-dots-horizontal-rounded"></i>
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="' . $edit . '">Edit</a></li>
+                        <li><a class="dropdown-item" href="' . $cetakorder . '" target="_blank">Cetak Order</a></li>
+                        <li><a class="dropdown-item" href="' . $bayar . '">Proses Perhitungan</a></li>
+                        <li><a class="dropdown-item" onclick="confirmation(event)" href="' . $hapus . '">Hapus</a></li>
+                    </ul>             
+                </div>';
+                } else {
                 return '<div class="dropdown">
                 <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bx bx-dots-horizontal-rounded"></i>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="' . $edit . '">Edit</a></li>
-                    <li><a class="dropdown-item" onclick="confirmation(event)" href="' . $hapus . '">Hapus</a></li>
-                </ul>
-            </div>';
+                    <ul class="dropdown-menu dropdown-menu-end">
+                         <li><a class="dropdown-item" href="' . $detail . '">Detail</a></li>
+                         <li><a class="dropdown-item" href="' . $cetakorder . '" target="_blank" >Cetak Order</a></li>
+                         <li><a class="dropdown-item" href="' . $cetakperhitungan . '" target="_blank">Cetak Perhitungan</a></li>
+                     </ul>                
+                </div>';
+                }
             })
-            ->hide('id_upload')
+            ->hide('id_jasa')
             ->toJson();
     }
 
     public function add()
     {
         $keberangkatans = new KeberangkatanModel();
-        $data['kapal'] = $keberangkatans->getKapal()->getResult();;
+        $jasaPeralatan = new JasaPeralatanModel();
+
+        // Dapatkan nomor order dari model
+        $noOrderData = $jasaPeralatan->generateNoOrder(['data' => []]);
+        $data['no_order'] = $noOrderData['data']['no_order'];
+        $data['kapal'] = $keberangkatans->getKapal()->getResult();
+
+
         return view('jasaperalatan/create', $data);
     }
 
-    public function store()
+    public function storeorder()
     {
         if (!$this->validate([
-            'id_kapal' => [
+            'nama_penyewa' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Pilih Nama Kapal'
+                    'required' => 'Pilih Nama Penyewa'
                 ]
             ],
-            'tanggal_masuk' => [
+            'tanggal' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Tanggal Masuk Harus diisi'
+                    'required' => 'Tanggal Harus diisi'
                 ]
             ],
-            'tanggal_keluar' => [
+            'petugas' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Tanggal Keluar Harus diisi'
-                ]
-            ],
-            'path_file' => [
-                'rules' => 'uploaded[path_file]|mime_in[path_file,application/pdf]|max_size[path_file,4096]',
-                'errors' => [
-                    'uploaded' => 'File wajib diunggah.',
-                    'mime_in' => 'File harus berupa PDF.',
-                    'max_size' => 'Ukuran file maksimal 4 MB.'
+                    'required' => 'Petugas Harus diisi'
                 ]
             ]
  
@@ -85,68 +110,72 @@ class JasaPeralatan extends BaseController
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
         }
-        $uploadsurat = new UploadSuratModel();
+        $orderjasa = new JasaPeralatanModel();
 
-        $filesurat = $this->request->getFile('path_file');
-        $namasurat = $filesurat->getRandomName();
+        $iceCruiser = (int) $this->request->getVar('ice_cruiser');
 
-        $filesurat->move('images/users/surat', $namasurat);
+        // Hitung biaya
+        $byIceCruiser = $iceCruiser * 100;
         
-        $uploadsurat->insert([
-            'id_kapal' => $this->request->getVar('id_kapal'),
-            'tanggal_masuk' => $this->request->getVar('tanggal_masuk'),
-            'tanggal_keluar' => $this->request->getVar('tanggal_keluar'),
-            'path_file' => $namasurat,
-            'upload_by' => $this->request->getVar('upload_by')
+        $orderjasa->insert([
+            'no_order' => $this->request->getVar('no_order'),
+            'nama_penyewa' => $this->request->getVar('nama_penyewa'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'keranjang_plastik' => $this->request->getVar('keranjang_plastik'),
+            'ket_keranjang_plastik' => $this->request->getVar('ket_keranjang_plastik'),
+            'meja_sortir' => $this->request->getVar('meja_sortir'),
+            'ket_meja_sortir' => $this->request->getVar('ket_meja_sortir'),
+            'gerobak' => $this->request->getVar('gerobak'),
+            'ket_gerobak' => $this->request->getVar('ket_gerobak'),
+            'timbangan' => $this->request->getVar('timbangan'),
+            'ket_timbangan' => $this->request->getVar('ket_timbangan'),
+            'ice_cruiser'     => $iceCruiser,
+            'by_ice_cruiser'  => $byIceCruiser,
+            'petugas' => $this->request->getVar('petugas'),
         ]);
-        session()->setFlashdata('message', 'Surat Berhasil diupload');
-        return redirect()->to('/uploadsurat');
+        session()->setFlashdata('message', 'Order Jasa Peralatan Berhasil Ditambahkan');
+        return redirect()->to('/jasaperalatan');
     }
 
     function edit($id)
     {
-        $uploadsurat = new UploadSuratModel();
+        $jasaPeralatan = new JasaPeralatanModel();
+        $keberangkatans = new KeberangkatanModel();
+
         $data = array(
-            'uploadsurat' => $uploadsurat->find($id)
+            'jasaPeralatan' => $jasaPeralatan->find($id)
         );
-        $data['kapal'] = $uploadsurat->getKapal()->getResult();;
-        return view('uploadsurat/edit', $data);
+        $data['kapal'] = $keberangkatans->getKapal()->getResult();
+        return view('jasaperalatan/edit', $data);
     }
 
     public function update($id)
     {
-        $uploadsurat = new UploadSuratModel();
-        $dataSurat = $uploadsurat->find($id);
+        $jasaPeralatan = new JasaPeralatanModel();
+        $dataOrder = $jasaPeralatan->find($id);
     
-        if (empty($dataSurat)) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Surat Tidak ditemukan!');
+        if (empty($dataOrder)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Order Pemakaian Peralatan Tidak ditemukan!');
         }
     
         // Validasi input tanpa mengharuskan file diunggah jika tidak ada file baru yang diunggah
         $rules = [
-            'id_kapal' => [
+           'nama_penyewa' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Pilih Nama Kapal'
+                    'required' => 'Pilih Nama Penyewa'
                 ]
             ],
-            'tanggal_masuk' => [
+            'tanggal' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Tanggal Masuk Harus diisi'
+                    'required' => 'Tanggal Harus diisi'
                 ]
             ],
-            'tanggal_keluar' => [
+            'petugas' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Tanggal Keluar Harus diisi'
-                ]
-            ],
-            'path_file' => [
-                'rules' => 'mime_in[path_file,application/pdf]|max_size[path_file,4096]',
-                'errors' => [
-                    'mime_in' => 'File harus berupa PDF.',
-                    'max_size' => 'Ukuran file maksimal 4 MB.'
+                    'required' => 'Petugas Harus diisi'
                 ]
             ]
         ];
@@ -156,50 +185,150 @@ class JasaPeralatan extends BaseController
             return redirect()->back()->withInput();
         }
     
-        $file = $this->request->getFile('path_file');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move('images/users/surat/', $newName);
+        $iceCruiser = (int) $this->request->getVar('ice_cruiser');
+
+        // Hitung biaya
+        $byIceCruiser = $iceCruiser * 100;
+
+        $data = [
+            'nama_penyewa' => $this->request->getVar('nama_penyewa'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'keranjang_plastik' => $this->request->getVar('keranjang_plastik'),
+            'ket_keranjang_plastik' => $this->request->getVar('ket_keranjang_plastik'),
+            'meja_sortir' => $this->request->getVar('meja_sortir'),
+            'ket_meja_sortir' => $this->request->getVar('ket_meja_sortir'),
+            'gerobak' => $this->request->getVar('gerobak'),
+            'ket_gerobak' => $this->request->getVar('ket_gerobak'),
+            'timbangan' => $this->request->getVar('timbangan'),
+            'ket_timbangan' => $this->request->getVar('ket_timbangan'),
+            'ket_ice_cruiser' => $this->request->getVar('ket_ice_cruiser'),
+            'ice_cruiser'     => $iceCruiser,
+            'by_ice_cruiser'  => $byIceCruiser,
+            'petugas' => $this->request->getVar('petugas'),
+        ];
+
+        $jasaPeralatan->update($id, $data);
     
-            // Hapus file lama
-            if (file_exists('images/users/surat/' . $dataSurat['path_file'])) {
-                unlink('images/users/surat/' . $dataSurat['path_file']);
-            }
+        session()->setFlashdata('message', 'Data Order Peralatan Berhasil Diupdate');
+        return redirect()->to('/jasaperalatan');
+    }
+
+    function bayar($id)
+    {
+        $jasaPeralatan = new JasaPeralatanModel();
+        $data = array(
+            'jasaPeralatan' => $jasaPeralatan->find($id)
+        );
+        return view('jasaperalatan/bayar', $data);
+    }
+
+    public function prosesbayar($id)
+    {
+        $jasaPeralatan = new JasaPeralatanModel();
+        $dataOrder = $jasaPeralatan->find($id);
     
-            $data['path_file'] = $newName;
-        } else {
-            $data['path_file'] = $this->request->getPost('old_path_file');
+        if (empty($dataOrder)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Biaya Pemakaian Peralatan Tidak ditemukan!');
         }
     
-        $data['id_kapal'] = $this->request->getPost('id_kapal');
-        $data['tanggal_masuk'] = $this->request->getPost('tanggal_masuk');
-        $data['tanggal_keluar'] = $this->request->getPost('tanggal_keluar');
-        $data['upload_by'] = $this->request->getPost('upload_by');
+        // Validasi input tanpa mengharuskan file diunggah jika tidak ada file baru yang diunggah
+        $rules = [
+           'nama_penyewa' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pilih Nama Penyewa'
+                ]
+            ],
+            'tanggal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Harus diisi'
+                ]
+            ],
+            'petugas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Petugas Harus diisi'
+                ]
+            ],
+                'bendahara' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Bendahara Harus diisi'
+                ]
+            ]
+        ];
     
-        $uploadsurat->update($id, $data);
+        if (!$this->validate($rules)) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back()->withInput();
+        }
     
-        session()->setFlashdata('message', 'Data Surat Berhasil Diupdate');
-        return redirect()->to('/uploadsurat');
+    
+        $data = [
+            'tanggal' => $this->request->getVar('tanggal'),
+            'jam_mulai' => $this->request->getVar('jam_mulai'),
+            'jam_selesai' => $this->request->getVar('jam_selesai'),
+            'keranjang_plastik' => $this->request->getVar('keranjang_plastik'),
+            'by_keranjang_plastik' => $this->request->getVar('by_keranjang_plastik'),
+            'meja_sortir' => $this->request->getVar('meja_sortir'),
+            'by_meja_sortir' => $this->request->getVar('by_meja_sortir'),
+            'gerobak' => $this->request->getVar('gerobak'),
+            'by_gerobak' => $this->request->getVar('by_gerobak'),
+            'timbangan' => $this->request->getVar('timbangan'),
+            'by_timbangan' => $this->request->getVar('by_timbangan'),
+            'ice_cruiser' => $this->request->getVar('ice_cruiser'),
+            'by_ice_cruiser' => $this->request->getVar('by_ice_cruiser'),
+            'petugas' => $this->request->getVar('petugas'),
+            'status_order' => "selesai",
+            'total' => $this->request->getVar('total'),
+            'bendahara' => $this->request->getVar('bendahara'),
+        ];
+
+        $jasaPeralatan->update($id, $data);
+    
+        session()->setFlashdata('message', 'Pembayaran Biaya Pemakaian Peralatan Berhasil');
+        return redirect()->to('/jasaperalatan');
+    }
+
+    function detail($id)
+    {
+        $jasaPeralatan = new JasaPeralatanModel();
+        $data = array(
+            'jasaPeralatan' => $jasaPeralatan->find($id)
+        );
+        return view('jasaperalatan/detail', $data);
+    }
+
+    function cetakorder($id)
+    {
+        $jasaPeralatan = new JasaPeralatanModel();
+        $data = array(
+            'jasaPeralatan' => $jasaPeralatan->find($id)
+        );
+        return view('jasaperalatan/cetakorder', $data);
+    }
+
+    function cetakperhitungan($id)
+    {
+        $jasaPeralatan = new JasaPeralatanModel();
+        $data = array(
+            'jasaPeralatan' => $jasaPeralatan->find($id)
+        );
+        return view('jasaperalatan/cetakperhitungan', $data);
     }
 
     function delete($id)
     {
-        $uploadsurat = new UploadSuratModel();
-        $dataSurat = $uploadsurat->find($id);
-        if (empty($dataSurat)) {
+        $jasaPeralatan = new UploadSuratModel();
+        $dataPeralatan = $jasaPeralatan->find($id);
+        if (empty($dataPeralatan)) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Surat Tidak ditemukan !');
         }
-            // Path file yang akan dihapus
-        $filePath = WRITEPATH . 'images/users/surat' . $dataSurat['path_file'];
 
-        // Hapus file jika ada
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-
-        $uploadsurat->delete($id);
-        session()->setFlashdata('message', 'Data Surat Berhasil Dihapus');
-        return redirect()->to('/uploadsurat');
+        $jasaPeralatan->delete($id);
+        session()->setFlashdata('message', 'Data Order Peralatan Berhasil Dihapus');
+        return redirect()->to('/jasaperalatan');
     }
 
 }
