@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print Order Jasa Air Tawar</title>
+    <title>Print Perhitungan Jasa Air Tawar</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -26,6 +26,11 @@
             width: 100%;
             margin-top: 10px;
         }
+
+            .nomor {
+        float: right;
+        margin-top: 10px;
+    }
 
         .table-bordered th,
         .table-bordered td {
@@ -56,70 +61,124 @@
 </head>
 
 <body>
+    <?php
+function terbilang($angka)
+{
+    $angka = abs((int)$angka);
+    $baca = ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"];
+    $hasil = "";
+
+    if ($angka < 12) {
+        $hasil = $baca[$angka];
+    } elseif ($angka < 20) {
+        $hasil = $baca[$angka - 10] . " belas";
+    } elseif ($angka < 100) {
+        $hasil = $baca[floor($angka / 10)] . " puluh";
+        if ($angka % 10 != 0) {
+            $hasil .= " " . terbilang($angka % 10);
+        }
+    } elseif ($angka < 200) {
+        $hasil = "seratus";
+        if ($angka - 100 != 0) {
+            $hasil .= " " . terbilang($angka - 100);
+        }
+    } elseif ($angka < 1000) {
+        $hasil = $baca[floor($angka / 100)] . " ratus";
+        if ($angka % 100 != 0) {
+            $hasil .= " " . terbilang($angka % 100);
+        }
+    } elseif ($angka < 2000) {
+        $hasil = "seribu";
+        if ($angka - 1000 != 0) {
+            $hasil .= " " . terbilang($angka - 1000);
+        }
+    } elseif ($angka < 1000000) {
+        $hasil = terbilang(floor($angka / 1000)) . " ribu";
+        if ($angka % 1000 != 0) {
+            $hasil .= " " . terbilang($angka % 1000);
+        }
+    } elseif ($angka < 1000000000) {
+        $hasil = terbilang(floor($angka / 1000000)) . " juta";
+        if ($angka % 1000000 != 0) {
+            $hasil .= " " . terbilang($angka % 1000000);
+        }
+    } elseif ($angka < 1000000000000) {
+        $hasil = terbilang(floor($angka / 1000000000)) . " miliar";
+        if (fmod($angka, 1000000000) != 0) {
+            $hasil .= " " . terbilang(fmod($angka, 1000000000));
+        }
+    } else {
+        $hasil = "Angka terlalu besar";
+    }
+
+    return $hasil;
+}
+
+?>
     <div class="container">
-
+            <div class="nomor">
+        <table border="1" cellpadding="5">
+            <tr>
+                <td>No: <strong style="color: red;"> <?php echo $jasaAir['no_order']; ?> </strong></td>
+            </tr>
+        </table>
+    </div>
+    <div class="clear"></div>
         <p class="text-center"><strong>PELABUHAN PERIKANAN NUSANTARA SIBOLGA</strong></p>
-        <p class="text-center"><strong><u>ORDER PEMAKAIAN AIR TAWAR</u></strong></p>
-        <p class="text-center">No Order : <strong style="color: red;"><?php echo $jasaAir['no_order']; ?></strong></p>
+        <p class="text-center"><strong><u>KUITANSI JASA AIR TAWAR</u></strong></p>
 
-        <?php
-        // Ambil dan format tanggal
-        $tanggal = $jasaAir['tanggal_permintaan']; // misalnya: '2025-07-11'
-        $datetime = new DateTime($tanggal);
-
-        // Mapping hari ke Bahasa Indonesia
-        $hariIndo = [
-            'Sunday' => 'Minggu',
-            'Monday' => 'Senin',
-            'Tuesday' => 'Selasa',
-            'Wednesday' => 'Rabu',
-            'Thursday' => 'Kamis',
-            'Friday' => 'Jumat',
-            'Saturday' => 'Sabtu'
-        ];
-
-        $hariInggris = $datetime->format('l'); // contoh: Friday
-        $hari = $hariIndo[$hariInggris]; // hasil: Jumat
-        $tanggalFormat = $datetime->format('d-m-Y'); // hasil: 11-07-2025
-        ?>
-
-        <p>Hari / Tanggal : <?php echo "$hari, $tanggalFormat"; ?></p>
-
+<table border="0" style="width:auto; border-collapse: collapse;">
+    <tbody>
+        <tr>
+            <td style="padding-right: 5px; white-space: nowrap;">Nama Kapal</td>
+            <td style="padding-right: 5px;">:</td>
+            <td style="padding-right: 5px;"><?php echo $jasaAir['nama_kapal']; ?></td>
+        </tr>
+        <tr>
+            <td style="padding-right: 5px; white-space: nowrap;">Tanggal Permintaan</td>
+            <td style="padding-right: 5px;">:</td>
+            <td style="padding-right: 5px;"><?php echo $jasaAir['tanggal_permintaan']; ?></td>
+        </tr>
+        <tr>
+            <td style="padding-right: 5px; white-space: nowrap;">Tanggal Pelayanan</td>
+            <td style="padding-right: 5px;">:</td>
+            <td style="padding-right: 5px;"><?php echo $jasaAir['tanggal_pelayanan']; ?></td>
+        </tr>
+    </tbody>
+</table>
         <table class="table-bordered">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Nama Pemakai</th>
-                    <th>Volume (M3)</th>
-                    <th>Harga /M3</th>
-                    <th>Jumlah Pembayaran</th>
-                    <th>Ket</th>
+                    <th>BANYAKNYA PERMINTAAN (M3)</th>
+                    <th>BIAYA PEMAKAIAN</th>
+                    <th>JUMLAH (Rp.)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-left"><?= $jasaAir['nama_kapal'] ?></td>
                     <td class="text-center"><?= $jasaAir['volume'] ?> M3</td>
                     <td class="text-center">Rp <?= number_format($jasaAir['harga'], 0, ',', '.'); ?></td>
                     <td class="text-center">Rp <?= number_format($jasaAir['jumlah_pembayaran'], 0, ',', '.'); ?></td>
-                    <td><?= $jasaAir['keterangan'] ?></td>
+                </tr>
+                <tr>
+                    <td colspan="3"> Terbilang : <i><?= ucfirst(terbilang($jasaAir['jumlah_pembayaran'])) . ' rupiah'; ?> </i></td>
                 </tr>
             </tbody>
         </table>
 
         <table class="signature-table">
             <tr>
-                <td>Pemohon</td>
-                <td></td>
-                <td>Pelaksana Lapangan</td>
+                <td>Petugas Pelayanan Air,</td>
+                <td>Pemakai Jasa</td>
+                <td>Bendahara PNBP</td>
             </tr>
             <tr>
-                <td>(<?= $jasaAir['pemohon'] ?>)</td>
-                <td></td>
                 <td>(<?= $jasaAir['pelaksana_lapangan'] ?>)</td>
+                <td>(<?= $jasaAir['pemohon'] ?>)</td>
+                <td>(<?= $jasaAir['bendahara'] ?>)</td>
             </tr>
         </table>
+        <u>Mari Awasi dan Laporkan Semua Bentuk Korupsi. WA : 0813 9666 9717, 0811 662 484</u>
     </div>
 </body>
 

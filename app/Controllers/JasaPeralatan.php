@@ -320,7 +320,7 @@ class JasaPeralatan extends BaseController
 
     function delete($id)
     {
-        $jasaPeralatan = new UploadSuratModel();
+        $jasaPeralatan = new JasaPeralatanModel();
         $dataPeralatan = $jasaPeralatan->find($id);
         if (empty($dataPeralatan)) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Surat Tidak ditemukan !');

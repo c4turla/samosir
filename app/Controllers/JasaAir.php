@@ -36,7 +36,6 @@ class JasaAir extends BaseController
             ->add('action', function ($row) {
                 $edit = base_url("air/edit") . '/' . $row->id_air;
                 $bayar = base_url("air/bayar") . '/' . $row->id_air;
-                $detail = base_url("air/detail") . '/' . $row->id_air;
                 $cetakorder = base_url("air/cetakorder") . '/' . $row->id_air;
                 $cetakperhitungan = base_url("air/cetakperhitungan") . '/' . $row->id_air;
                 $hapus = base_url("air/delete") . '/' . $row->id_air;              
@@ -59,7 +58,6 @@ class JasaAir extends BaseController
                     <i class="bx bx-dots-horizontal-rounded"></i>
                 </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                         <li><a class="dropdown-item" href="' . $detail . '">Detail</a></li>
                          <li><a class="dropdown-item" href="' . $cetakorder . '" target="_blank" >Cetak Order</a></li>
                          <li><a class="dropdown-item" href="' . $cetakperhitungan . '" target="_blank">Cetak Perhitungan</a></li>
                      </ul>                
@@ -279,7 +277,7 @@ class JasaAir extends BaseController
         $data = array(
             'jasaAir' => $jasaAir->find($id)
         );
-        return view('jasaair/cetakorder', $data);
+        return view('jasaair/cetakperhitungan', $data);
     }
 
     function delete($id)

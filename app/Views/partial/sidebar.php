@@ -111,7 +111,13 @@
                         </li>
                     </ul>
                 </li>
-                <?php } ?>          
+                <?php } ?> 
+                <li>
+                    <a href="<?= base_url('/faq') ?>">
+                        <i data-feather="book"></i>
+                        <span data-key="t-faq">FAQ</span>
+                    </a>
+                </li>       
             </ul>
         </div>
         <!-- Sidebar -->

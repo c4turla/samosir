@@ -37,6 +37,7 @@ $routes->get('/signin', 'Login::index');
 $routes->post('/signin/process', 'Login::process');
 $routes->get('/logout', 'Login::logout');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'usersAuth']);
+$routes->get('/faq', 'Dashboard::faq');
 //Akses User
 $routes->get('/setting', 'User::setting', ['filter' => 'usersAuth']);
 $routes->get('/tambah-pengguna', 'User::add', ['filter' => 'usersAuth']);
@@ -123,6 +124,7 @@ $routes->post('/air/storeorder', 'JasaAir::store', ['filter' => 'usersAuth']);
 $routes->get('/air/cetakorder/(:num)', 'JasaAir::cetakorder/$1', ['filter' => 'usersAuth']);
 $routes->get('/air/edit/(:num)', 'JasaAir::edit/$1', ['filter' => 'usersAuth']);
 $routes->get('/air/bayar/(:num)', 'JasaAir::bayar/$1', ['filter' => 'usersAuth']);
+$routes->get('/air/cetakperhitungan/(:num)', 'JasaAir::cetakperhitungan/$1', ['filter' => 'usersAuth']);
 //Laporan
 $routes->get('/lap-kapal', 'Laporan::kapal', ['filter' => 'usersAuth']);
 $routes->get('/lap-kedatangan', 'Laporan::Kedatangan', ['filter' => 'usersAuth']);

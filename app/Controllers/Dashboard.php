@@ -64,4 +64,9 @@ class Dashboard extends BaseController
         }
         return view('dashboard', $data);
     }
+
+    public function faq()
+        {
+            return view('faq');
+        }
 }
