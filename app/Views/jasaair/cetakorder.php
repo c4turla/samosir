@@ -100,7 +100,7 @@
                 <tr>
                     <td class="text-center">1</td>
                     <td class="text-left"><?= $jasaAir['nama_kapal'] ?></td>
-                    <td class="text-center"><?= $jasaAir['volume'] ?> M3</td>
+                    <td class="text-center"><?= $jasaAir['volume'] ?></td>
                     <td class="text-center">Rp <?= number_format($jasaAir['harga'], 0, ',', '.'); ?></td>
                     <td class="text-center">Rp <?= number_format($jasaAir['jumlah_pembayaran'], 0, ',', '.'); ?></td>
                     <td><?= $jasaAir['keterangan'] ?></td>
@@ -112,7 +112,7 @@
             <tr>
                 <td>Pemohon</td>
                 <td></td>
-                <td>Pelaksana Lapangan</td>
+                <td>Petugas Lapangan</td>
             </tr>
             <tr>
                 <td>(<?= $jasaAir['pemohon'] ?>)</td>

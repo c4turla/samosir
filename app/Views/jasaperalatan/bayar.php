@@ -129,18 +129,6 @@
                                     </div>
                                 </div>
                                 <div class="row g-0 mb-4 align-items-center">
-                                    <label for="timbangan" class="col-sm-2 col-form-label">Timbangan</label>
-                                    <div class="col-sm-2">
-                                        <input type="number" class="form-control" id="timbangan" name="timbangan"
-                                            value="<?= $jasaPeralatan['timbangan']; ?>">
-                                    </div>
-                                    <label for="by_timbangan" class="col-sm-2 col-form-label ps-4">Biaya Pemakaian</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="by_timbangan" name="by_timbangan"
-                                            value="<?= $jasaPeralatan['by_timbangan']; ?>">
-                                    </div>
-                                </div>
-                                <div class="row g-0 mb-4 align-items-center">
                                     <label for="ice_cruiser" class="col-sm-2 col-form-label">Ice Cruiser</label>
                                     <div class="col-sm-2">
                                         <input type="number" class="form-control" id="ice_cruiser" name="ice_cruiser"
@@ -211,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
         keranjang_plastik: 500,
         meja_sortir: 1000,
         gerobak: 500,
-        timbangan: 3000
     };
 
     function hitungBiaya(jumlah, durasi, hargaPerJam) {

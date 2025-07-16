@@ -156,7 +156,7 @@ function terbilang($angka)
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-center"><?= $jasaAir['volume'] ?> M3</td>
+                    <td class="text-center"><?= $jasaAir['volume'] ?></td>
                     <td class="text-center">Rp <?= number_format($jasaAir['harga'], 0, ',', '.'); ?></td>
                     <td class="text-center">Rp <?= number_format($jasaAir['jumlah_pembayaran'], 0, ',', '.'); ?></td>
                 </tr>
@@ -168,7 +168,7 @@ function terbilang($angka)
 
         <table class="signature-table">
             <tr>
-                <td>Petugas Pelayanan Air,</td>
+                <td>Petugas Pelayanan Jasa,</td>
                 <td>Pemakai Jasa</td>
                 <td>Bendahara PNBP</td>
             </tr>

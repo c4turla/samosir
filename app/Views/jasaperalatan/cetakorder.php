@@ -116,12 +116,6 @@
                 </tr>
                 <tr>
                     <td class="text-center">4</td>
-                    <td class="text-left">Timbangan</td>
-                    <td class="text-center"><?= $jasaPeralatan['timbangan'] ?> Unit</td>
-                    <td><?= $jasaPeralatan['ket_timbangan'] ?></td>
-                </tr>
-                <tr>
-                    <td class="text-center">5</td>
                     <td class="text-left">Ice Cruiser</td>
                     <td class="text-center"><?= $jasaPeralatan['ice_cruiser'] ?> Unit</td>
                     <td><?= $jasaPeralatan['ket_ice_cruiser'] ?></td>
@@ -133,7 +127,7 @@
 
         <table class="signature-table">
             <tr>
-                <td>Petugas Peralatan</td>
+                <td>Petugas Lapangan</td>
                 <td></td>
                 <td>Pengguna Jasa</td>
             </tr>

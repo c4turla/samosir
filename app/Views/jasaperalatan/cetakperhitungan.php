@@ -224,7 +224,7 @@ function terbilang($angka)
 
         <table class="signature-table">
             <tr>
-                <td>Petugas Peralatan</td>
+                <td>Petugas Pelayanan Jasa</td>
                 <td>Bendahara Penerimaan</td>
             </tr>
             <tr>
