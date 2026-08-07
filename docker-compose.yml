@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: samosir-web
+    ports:
+      - "80:80"
+    environment:
+      DB_HOST: db
+      DB_DATABASE: samosir
+      DB_USERNAME: samosir
+      DB_PASSWORD: samosir_secret
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - ./writable:/var/www/html/writable
+
+  db:
+    image: mysql:8.0
+    container_name: samosir-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secret
+      MYSQL_DATABASE: samosir
+      MYSQL_USER: samosir
+      MYSQL_PASSWORD: samosir_secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:
