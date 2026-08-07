@@ -8,4 +8,7 @@ if [ -f /var/www/html/.env ]; then
     sed -i "s|database.default.password = .*|database.default.password = ${DB_PASSWORD}|" /var/www/html/.env
 fi
 
+chown -R www-data:www-data /var/www/html/writable
+chmod -R 755 /var/www/html/writable
+
 exec "$@"
