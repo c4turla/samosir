@@ -42,7 +42,9 @@ RUN composer install --no-dev --no-interaction --optimize-autoloader
 
 COPY . .
 
-RUN chown -R www-data:www-data /var/www/html/writable \
+RUN rm -rf vendor/codeigniter4/framework/system \
+    && composer dump-autoload --optimize \
+    && chown -R www-data:www-data /var/www/html/writable \
     && chmod -R 755 /var/www/html/writable
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
