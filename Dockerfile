@@ -44,6 +44,7 @@ COPY . .
 
 RUN rm -rf vendor/codeigniter4/framework/system \
     && composer dump-autoload --optimize \
+    && mkdir -p /var/www/html/writable/cache /var/www/html/writable/logs /var/www/html/writable/session \
     && chown -R www-data:www-data /var/www/html/writable \
     && chmod -R 755 /var/www/html/writable
 
