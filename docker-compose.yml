@@ -9,6 +9,7 @@ services:
     ports:
       - "80:80"
     environment:
+      APP_URL: https://kendariweb-samosir-lama.q00ohl.easypanel.host/
       DB_HOST: db
       DB_DATABASE: samosir
       DB_USERNAME: samosir
